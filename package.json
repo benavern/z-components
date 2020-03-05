@@ -1,0 +1,31 @@
+{
+  "name": "z-components",
+  "version": "0.0.0",
+  "description": "A set of web components I'd like to use more often...",
+  "main": "lib/z-components.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "npm run build:demo && npm run build:lib",
+    "build:demo": "parcel build src/index.html -d public",
+    "build:lib": "parcel build src/js/z-components.js -d lib --experimental-scope-hoisting"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/benavern/z-components.git"
+  },
+  "keywords": [
+    "web-components",
+    "html",
+    "js",
+    "css"
+  ],
+  "author": "Benjamin Caradeuc <benjamin@caradeuc.info>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/benavern/z-components/issues"
+  },
+  "homepage": "https://github.com/benavern/z-components#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}

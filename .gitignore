@@ -1,0 +1,10 @@
+# node
+node_modules/
+
+# parcel
+.cache/
+
+# bundles
+dist/
+lib/
+public/

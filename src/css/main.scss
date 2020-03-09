@@ -1,0 +1,22 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+hr {
+    margin: 4rem 1rem;
+    border: none;
+    border-bottom: .1rem solid silver;
+}
+
+.container {
+    width: 100%;
+    max-width: 640px;
+    padding: 1rem;
+    margin: 0 auto;
+}

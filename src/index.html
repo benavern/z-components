@@ -4,12 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Z-Components</title>
+    <link rel="stylesheet" href="./css/main.scss">
 </head>
 <body>
-    <h1>Z-Components</h1>
 
-    <input is="z-input">
-    <textarea is="z-textarea"></textarea>
+    <div class="container">
+        <h1>Z-Components</h1>
+        
+        <hr>
+
+        <h2>Input</h2>
+    
+        <z-input label="Text input"></z-input>
+
+        <hr>
+
+        <h2>Textarea</h2>
+        <z-textarea></z-textarea>
+    </div>
 
     <script src="./js/main.js"></script>
 </body>

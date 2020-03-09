@@ -1,4 +1,4 @@
-export class ZTextArea extends HTMLTextAreaElement {
+export class ZTextArea extends HTMLElement {
     constructor () {
         super()
         console.log('z-textarea works!')

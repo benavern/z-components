@@ -42,7 +42,7 @@ template.innerHTML = `
         .z-input .z-input__field:focus,
         .z-input .z-input__field:not(:placeholder-shown) {
             outline: none;
-            border-bottom-color: .var(--focus);
+            border-bottom-color: var(--focus);
         }
 
         .z-input .z-input__field:focus + .z-input__label,

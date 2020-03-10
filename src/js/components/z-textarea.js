@@ -1,3 +1,18 @@
+function debounce(cb, delay) {
+    let timeout
+
+    return function () {
+        const ctx = this
+        const args = arguments
+
+        clearTimeout(timeout)
+        
+        timeout = setTimeout(function () {
+            cb.apply(ctx, args)
+        }, delay)
+    }
+}
+
 const template = document.createElement('template')
 template.innerHTML = `
     <style>
@@ -88,7 +103,7 @@ export class ZTextArea extends HTMLElement {
 
         if (this.autoresize) {
             this.resizeField()
-            window.addEventListener('resize', this.resizeField)
+            window.addEventListener('resize', debounce(this.resizeField, 200))
         }
     }
 

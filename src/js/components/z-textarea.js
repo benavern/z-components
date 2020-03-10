@@ -2,7 +2,7 @@ const template = document.createElement('template')
 template.innerHTML = `
     <style>
         :host {
-            --blur: #555;
+            --blur: #889;
             --focus: #0088c5;
         }
 

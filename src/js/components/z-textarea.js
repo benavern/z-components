@@ -64,6 +64,7 @@ export class ZTextArea extends HTMLElement {
         super()
         // give context to the methods used in event listeners
         this.inputAction = this.inputAction.bind(this)
+        this.resizeField = this.resizeField.bind(this)
 
         // create a shadowDom
         this.root = this.attachShadow({ mode: 'open' })
@@ -72,6 +73,9 @@ export class ZTextArea extends HTMLElement {
         // expose the usefull shadowDom parts through all the class
         this.fieldEl = this.root.querySelector('.z-input__field')
         this.labelEl = this.root.querySelector('.z-input__label')
+
+        this.label = this.getAttribute('label')
+        this.autoresize = this.hasAttribute('autoresize')
     }
 
     connectedCallback() {
@@ -81,15 +85,30 @@ export class ZTextArea extends HTMLElement {
 
         // connect the event listeners
         this.fieldEl.addEventListener('input', this.inputAction)
+
+        if (this.autoresize) {
+            this.resizeField()
+            window.addEventListener('resize', this.resizeField)
+        }
     }
 
     disconnectedCallback() {
         // remove the listeners
-        this.fieldEl.addEventListener('input', this.inputAction)
+        this.fieldEl.removeEventListener('input', this.inputAction)
+        window.removeEventListener('resize', this.resizeField)
     }
 
     inputAction(e) {
         this.value = e.target.value
+
+        if (this.autoresize) {
+            this.resizeField()
+        }
+    }
+
+    resizeField(e) {
+        this.fieldEl.style.height = 'auto'
+        this.fieldEl.style.height = this.fieldEl.scrollHeight + 'px'
     }
 
     static get observedAttributes() {
@@ -108,9 +127,5 @@ export class ZTextArea extends HTMLElement {
         // set value or remove the attribute if no value exists inside the field
         if (newValue) this.setAttribute('value', newValue)
         else this.removeAttribute('value')
-    }
-
-    get label() {
-        return this.getAttribute('label')
     }
 }

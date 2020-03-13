@@ -4,6 +4,7 @@ template.innerHTML = `
         :host {
             --blur: #889;
             --focus: #0088c5;
+            display: block;
         }
 
         * {

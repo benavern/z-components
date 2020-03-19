@@ -26,9 +26,16 @@
   },
   "homepage": "https://github.com/benavern/z-components#readme",
   "dependencies": {
+    "lit-element": "^2.3.0",
     "parcel-bundler": "^1.12.4"
   },
   "devDependencies": {
     "sass": "^1.26.2"
-  }
+  },
+  "browserslist": [
+    ">2%",
+    "Edge > 14",
+    "Firefox > 63",
+    "Chrome > 67"
+  ]
 }

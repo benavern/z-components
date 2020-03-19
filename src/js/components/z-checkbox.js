@@ -1,160 +1,116 @@
-const template = document.createElement('template')
-template.innerHTML = `
-    <style>
-        :host {
-            --checked: #0088c5;
-            --blur: #889;
-            --hover: #445;
-            --tick: #fff;
-        }
+import { LitElement, html, css } from 'lit-element';
 
-        * {
-            box-sizing: border-box;
-        }
+export class ZCheckbox extends LitElement {
+    static get styles() {
+        return css`
+            :host {
+                --checked: var(--z-primary-color, #0088c5);
+                --blur: var(--z-secondary-color, #889);
+                --hover: #445;
+                --tick: #fff;
+            }
 
-        .z-checkbox {
-            display: inline-block;
-            user-select: none;
-            position: relative;
-            margin: 1em 0;
-        }
+            * {
+                box-sizing: border-box;
+            }
 
-        .z-checkbox .z-checkbox__item {
-            position: relative;
-            display: inline-block;
-            height: 1em;
-            width: 1em;
-            background-color: var(--blur);
-            margin: 0 .25em;
-            border-radius: .15em;
-            bottom: -.15em;
-        }
+            .z-checkbox {
+                display: inline-block;
+                user-select: none;
+                position: relative;
+                margin: 1em 0;
+            }
 
-        .z-checkbox:hover {
-            cursor: pointer;
-        }
+            .z-checkbox:hover {
+                cursor: pointer;
+            }
 
-        .z-checkbox:hover .z-checkbox__item {
-            background-color: var(--hover);
-        } 
+            .z-checkbox.disabled {
+                opacity: .5;
+            }
 
-        .z-checkbox input[type="checkbox"] {
-            border: 0;
-            clip: rect(0 0 0 0);
-            height: 1px;
-            margin: -1px;
-            overflow: hidden;
-            padding: 0;
-            position: absolute;
-            width: 1px;
-        }
+            .z-checkbox.disabled:hover {
+                cursor: not-allowed;
+            }
 
-        .z-checkbox input[type="checkbox"]:checked + .z-checkbox__item {
-            background-color: var(--checked);
-        }
+            .z-checkbox .z-checkbox__label { 
+                cursor: inherit;
+            }
 
-        .z-checkbox input[type="checkbox"]:checked + .z-checkbox__item:after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -75%) rotate(-45deg);
-            width: .5em;
-            height: .25em;
-            border-bottom: .15em solid var(--tick);
-            border-left: .15em solid var(--tick);
-        }
+            .z-checkbox .z-checkbox__item {
+                position: relative;
+                display: inline-block;
+                height: 1em;
+                width: 1em;
+                background-color: var(--blur);
+                margin: 0 .25em;
+                border-radius: .15em;
+                bottom: -.15em;
+            }
 
-        .z-checkbox input[type="checkbox"]:focus + .z-checkbox__item {
-            outline-style: auto;
-            outline-color: var(--checked);
-        }
+            .z-checkbox:hover:not(.disabled) .z-checkbox__item {
+                background-color: var(--hover);
+            } 
 
-        .z-checkbox input[type="checkbox"]:disabled + .z-checkbox__item {
-            opacity: .5;
-            cursor: not-allowed;
-        }
-    </style>
+            .z-checkbox input[type="checkbox"] {
+                border: 0;
+                clip: rect(0 0 0 0);
+                height: 1px;
+                margin: -1px;
+                overflow: hidden;
+                padding: 0;
+                position: absolute;
+                width: 1px;
+            }
 
-    <div class="z-checkbox">
-        <label class="z-checkbox__label-before"></label>
+            .z-checkbox input[type="checkbox"]:checked + .z-checkbox__item {
+                background-color: var(--checked);
+            }
 
-        <input type="checkbox">
-        <span class="z-checkbox__item"></span>
+            .z-checkbox input[type="checkbox"]:checked + .z-checkbox__item:after {
+                content: "";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -75%) rotate(-45deg);
+                width: .5em;
+                height: .25em;
+                border-bottom: .15em solid var(--tick);
+                border-left: .15em solid var(--tick);
+            }
 
-        <label class="z-checkbox__label-after"></label>
-    </div>
-`
-
-export class ZCheckbox extends HTMLElement {
-
-    constructor () {
-        super()
-        // give context to the methods used in event listeners
-        this.checkboxAction = this.checkboxAction.bind(this)
-
-        // create a shadowDom
-        this.root = this.attachShadow({ mode: 'open' })
-        this.root.appendChild(template.content.cloneNode(true))
-
-        // expose the usefull shadowDom parts through all the class
-        this.$el = this.root.querySelector('.z-checkbox')
-        this.$checkbox = this.$el.querySelector('input[type="checkbox"]')
-        this.$label = this.labelLeft
-            ? this.$el.querySelector('.z-checkbox__label-before')
-            : this.$el.querySelector('.z-checkbox__label-after')
+            .z-checkbox input[type="checkbox"]:focus + .z-checkbox__item {
+                outline-style: auto;
+                outline-color: var(--checked);
+            }
+        `
     }
 
-    connectedCallback() {
-        // set the default values
-        this.$checkbox.checked = this.value
-        this.$checkbox.disabled = this.disabled
-        this.$label.textContent = this.label
-
-        // connect the event listeners
-        this.$el.addEventListener('click', this.checkboxAction)
+    static get properties() {
+        return {
+            label: { type: String },
+            checked: { type: Boolean, reflect: true },
+            disabled: { type: Boolean },
+            right: { type: Boolean }
+        };
     }
 
-    disconnectedCallback() {
-        // remove the listeners
-        this.$el.addEventListener('click', this.checkboxAction)
+    render () {
+        return html`
+            <div class="z-checkbox ${this.disabled ? 'disabled' : ''}" @click="${this.toggleChecked}">
+                ${ this.right ? html`<label class="z-checkbox__label">${this.label}</label>` : '' }
+        
+                <input type="checkbox" ?disabled="${this.disabled}" ?checked="${this.checked}" />
+                <span class="z-checkbox__item"></span>
+
+                ${ !this.right ? html`<label class="z-checkbox__label">${this.label}</label>` : '' }
+            </div>
+        `
     }
 
-    checkboxAction(e) {
+    toggleChecked(e) {
         if (!this.disabled) {
-            this.value = !this.value
+            this.checked = !this.checked
         }
-    }
-
-    static get observedAttributes() {
-        return ['checked']
-    }
-
-    attributeChangedCallback(name, oldValue, newValue) {
-        if(newValue !== oldValue) {
-            this.$checkbox.checked = typeof newValue === 'string'
-        }
-    }
-
-    get value() {
-        return this.hasAttribute('checked')
-    }
-      
-    set value(newValue) {
-        // set checked or remove the attribute if no value
-        if (newValue) this.setAttribute('checked', '')
-        else this.removeAttribute('checked')
-    }
-
-    get label() {
-        return this.getAttribute('label')
-    }
-
-    get disabled() {
-        return this.hasAttribute('disabled')
-    }
-
-    get labelLeft() {
-        return this.getAttribute('label-position') === 'left'
     }
 }

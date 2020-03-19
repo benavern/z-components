@@ -1,4 +1,4 @@
-import { ZInput, ZTextArea, ZCheckbox } from "./z-components"
+import { ZInput, ZTextArea, ZCheckbox } from "./z-web-components"
 
 customElements.define('z-input', ZInput)
 customElements.define('z-textarea', ZTextArea)

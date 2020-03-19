@@ -8,7 +8,7 @@
     "build": "npm run build:demo && npm run build:lib",
     "build:demo": "parcel build src/index.html -d public",
     "build:lib": "parcel build src/js/z-web-components.js -d lib --experimental-scope-hoisting",
-    "preare": "npm run build:lib"
+    "prepare": "npm run build:lib"
   },
   "repository": {
     "type": "git",

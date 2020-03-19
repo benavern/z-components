@@ -1,6 +1,6 @@
 {
   "name": "z-components",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A set of web components I'd like to use more often...",
   "main": "lib/z-components.js",
   "scripts": {

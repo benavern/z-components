@@ -8,7 +8,8 @@
     "build": "npm run build:demo && npm run build:lib",
     "build:demo": "parcel build src/index.html -d public",
     "build:lib": "parcel build src/js/z-web-components.js -d lib --experimental-scope-hoisting",
-    "prepare": "npm run build:lib"
+    "cleanup": "rimraf .cache dist lib public",
+    "prepare": "npm run cleanup && npm run build:lib"
   },
   "repository": {
     "type": "git",
@@ -28,9 +29,10 @@
   "homepage": "https://github.com/benavern/z-components#readme",
   "dependencies": {},
   "devDependencies": {
+    "lit-element": "^2.3.0",
     "parcel-bundler": "^1.12.4",
-    "sass": "^1.26.2",
-    "lit-element": "^2.3.0"
+    "rimraf": "^3.0.2",
+    "sass": "^1.26.2"
   },
   "browserslist": [
     ">2%",

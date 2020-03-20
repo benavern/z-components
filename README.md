@@ -1,30 +1,48 @@
-# Z Components
+# Z WebComponents
 
 A set of web components I'd like to use more often...
+
+<details>
+    <summary>Click for screenshot</summary>
+    <img src="./screenshot.png" />
+</details>
 
 ## Getting Started
 
 First install the lib in your project
 
 ```bash
-npm i z-components
+npm i z-web-components
 ```
 
-Then import what you need and use it
+Then import what you need
 
 ```js
 // main.js
-import { ZInput, ZTextArea, ZCheckbox } from "./z-components"
+import { ZInput, ZTextArea, ZCheckbox, ZToggle } from "./z-web-components"
 
 customElements.define('z-input', ZInput)
 customElements.define('z-textarea', ZTextArea)
 customElements.define('z-checkbox', ZCheckbox)
+customElements.define('z-toggle', ZToggle)
+```
 
+And use it in your html
+
+```html
+<!-- index.html -->
+<z-input label="Text input with default value" value="default value"></z-input>
+
+<z-textarea label="Textarea input with default value" value="default value"></z-textarea>
+
+<z-checkbox label="checkbox input checked" checked></z-checkbox>
+
+<z-toggle label="toggle input active" active></z-toggle>
 ```
 
 ### Prerequisites
 
-These web components are guarented to work on these browsers:
+The Z Web Components should work on these browsers:
 
 ```json
 "browserslist": [
@@ -43,6 +61,37 @@ These web components are guarented to work on these browsers:
 ## Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+### Development
+
+Clone the repository
+
+```bash
+# ssh
+git clone git@github.com:benavern/z-components.git z-web-components
+
+# https
+git clone https://github.com/benavern/z-components.git z-web-components
+```
+
+Install dependancies
+
+```bash
+cd z-web-components
+npm i
+```
+
+Serve with hot reload and stuff
+
+```bash
+npm run dev
+```
+
+Build the lib
+
+```bash
+npm run build:lib
+```
 
 ## Versioning
 

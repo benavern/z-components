@@ -2,6 +2,10 @@
 
 A set of web components I'd like to use more often...
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e6df436a-46b8-4461-84f7-ff6c037e2634/deploy-status)](https://app.netlify.com/sites/z-web-components/deploys)
+
+[DEMO](https://z-web-components.netlify.com/)
+
 <details>
     <summary>Click for screenshot</summary>
     <img src="./screenshot.png" />

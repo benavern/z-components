@@ -23,12 +23,14 @@ Then import what you need
 
 ```js
 // main.js
-import { ZInput, ZTextArea, ZCheckbox, ZToggle } from "./z-web-components"
+import { ZInput, ZTextArea, ZCheckbox, ZToggle, ZRadioGroup, ZRadio } from "./z-web-components"
 
 customElements.define('z-input', ZInput)
 customElements.define('z-textarea', ZTextArea)
 customElements.define('z-checkbox', ZCheckbox)
 customElements.define('z-toggle', ZToggle)
+customElements.define('z-radio-group', ZRadioGroup)
+customElements.define('z-radio', ZRadio)
 ```
 
 And use it in your html
@@ -42,6 +44,11 @@ And use it in your html
 <z-checkbox label="checkbox input checked" checked></z-checkbox>
 
 <z-toggle label="toggle input active" active></z-toggle>
+
+<z-radio-group name="radio-demo" value="2">
+    <z-radio label="radio input" value="1"></z-radio>
+    <z-radio label="radio input" value="2"></z-radio>
+</z-radio-group>
 ```
 
 ### Prerequisites

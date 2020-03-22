@@ -119,7 +119,6 @@ export class ZToggle extends LitElement {
     }
 
     render () {
-        console.log('labels: ', this.onlabel, this.offlabel);
         return html`
             <div class="z-toggle ${this.disabled ? 'disabled' : ''}" @click="${this.toggleChecked}">
                 ${ this.right ? html`<label class="z-toggle__label">${this.label}</label>` : '' }

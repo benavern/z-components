@@ -6,6 +6,7 @@ export class ZInput extends LitElement {
             :host {
                 --focus: var(--z-primary-color, #0088c5);
                 --blur: var(--z-secondary-color, #889);
+                --invalid: var(--z-danger-color, #f33);
             }
 
             * {
@@ -43,6 +44,12 @@ export class ZInput extends LitElement {
                 resize: vertical;
                 padding: 1em 0 .5em;
                 min-height: 2.5em;
+                resize: none;
+            }
+
+            .z-input .z-input__field[type="color"] {
+                border-bottom: none;
+                padding: .5em 0 0;
             }
 
             .z-input .z-input__field:focus,
@@ -56,21 +63,64 @@ export class ZInput extends LitElement {
                 transform: translate(0, -1.5em) scale(.75);
                 color: var(--focus);
             }
+
+            .z-input .z-input__field:invalid,
+            .z-input .z-input__field:invalid:not(:placeholder-shown) {
+                border-bottom-color: var(--invalid);
+            }
+
+            .z-input .z-input__field:invalid + .z-input__label,
+            .z-input .z-input__field:invalid:not(:placeholder-shown) + .z-input__label {
+                color: var(--invalid);
+            }
         `
     }
 
     static get properties() {
         return {
+            type: { type: String },
             label: { type: String },
             value: { type: String, reflect: true },
-            disabled: { type: Boolean }
+            disabled: { type: Boolean },
+            required: { type: Boolean },
+            readonly: { type: Boolean }
         };
+    }
+
+    constructor() {
+        super()
+        this._type = 'text'
+    }
+
+    set type(value) {
+        const oldValue = this.type
+
+        const validInputTypes = ['color', 'date', 'datetime-local', 'email', 'month', 'number', 'password', 'search', 'tel', 'text', 'time', 'url', 'week']
+        if (validInputTypes.includes(value)) {
+            this._type = value
+        } else {
+            this._type = 'text'
+        }
+
+        this.requestUpdate('type', oldValue)
+    }
+
+    get type() {
+        return this._type
     }
 
     render () {
         return html`
             <div class="z-input ${this.disabled ? 'disabled' : ''}">
-                <input type="text" class="z-input__field" placeholder=" " ?disabled="${this.disabled}" .value="${this.value || ''}" @input="${this.inputAction}"/>
+                <input 
+                    class="z-input__field" 
+                    placeholder=" " 
+                    .type="${this.type}" 
+                    .value="${this.value || ''}" 
+                    @input="${this.inputAction}"
+                    ?disabled="${this.disabled}"
+                    ?required="${this.required}"
+                    ?readonly="${this.readonly}" /> 
                 ${ this.label ? html`<label class="z-input__label">${this.label}</label>`: '' }
             </div>
         `

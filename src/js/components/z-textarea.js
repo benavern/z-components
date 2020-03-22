@@ -9,22 +9,23 @@ export class ZTextArea extends LitElement {
             :host {
                 --focus: var(--z-primary-color, #0088c5);
                 --blur: var(--z-secondary-color, #889);
+                --invalid: var(--z-danger-color, #f33);
             }
 
             * {
                 box-sizing: border-box;
             }
 
-            .z-input {
+            .z-textarea {
                 position: relative;
                 margin: 1em 0;
             }
 
-            .z-input.disabled {
+            .z-textarea.disabled {
                 opacity: .5;
             }
 
-            .z-input .z-input__label {
+            .z-textarea .z-textarea__label {
                 position: absolute;
                 top: 1em;
                 left: 0;
@@ -34,7 +35,7 @@ export class ZTextArea extends LitElement {
                 color: var(--blur);
             }
 
-            .z-input .z-input__field {
+            .z-textarea .z-textarea__field {
                 display: block;
                 width: 100%;
                 border: none;
@@ -48,16 +49,31 @@ export class ZTextArea extends LitElement {
                 min-height: 2.5em;
             }
 
-            .z-input .z-input__field:focus,
-            .z-input .z-input__field:not(:placeholder-shown) {
+            .z-textarea.autoresize .z-textarea__field {
+                overflow: hidden;
+                resize: none;
+            }
+
+            .z-textarea .z-textarea__field:focus,
+            .z-textarea .z-textarea__field:not(:placeholder-shown) {
                 outline: none;
                 border-bottom-color: var(--focus);
             }
 
-            .z-input .z-input__field:focus + .z-input__label,
-            .z-input .z-input__field:not(:placeholder-shown) + .z-input__label {
+            .z-textarea .z-textarea__field:focus + .z-textarea__label,
+            .z-textarea .z-textarea__field:not(:placeholder-shown) + .z-textarea__label {
                 transform: translate(0, -1.5em) scale(.75);
                 color: var(--focus);
+            }
+
+            .z-textarea .z-textarea__field:invalid,
+            .z-textarea .z-textarea__field:invalid:not(:placeholder-shown) {
+                border-bottom-color: var(--invalid);
+            }
+
+            .z-textarea .z-textarea__field:invalid + .z-textarea__label,
+            .z-textarea .z-textarea__field:invalid:not(:placeholder-shown) + .z-textarea__label {
+                color: var(--invalid);
             }
         `
     }
@@ -67,15 +83,30 @@ export class ZTextArea extends LitElement {
             label: { type: String },
             value: { type: String, reflect: true },
             disabled: { type: Boolean },
+            required: { type: Boolean },
+            readonly: { type: Boolean },
             autoresize: { type: Boolean }
         };
     }
 
+    constructor() {
+        super()
+        this.onResize = debounce(this.onResize.bind(this), 200)
+    }
+
     render() {
         return html`
-            <div class="z-input ${this.disabled ? 'disabled' :''}">
-                <textarea type="text" class="z-input__field" placeholder=" " ?disabled="${this.disabled}" @input="${this.inputAction}" .value="${this.value || ''}"></textarea>
-                ${ this.label ? html`<label class="z-input__label">${this.label}</label>`: '' }
+            <div class="z-textarea ${this.disabled ? 'disabled' :''} ${this.autoresize ? 'autoresize' : ''}">
+                <textarea 
+                    class="z-textarea__field"
+                    placeholder=" "
+                    @input="${this.inputAction}" 
+                    .value="${this.value || ''}"
+                    ?disabled="${this.disabled}"
+                    ?required="${this.required}"
+                    ?readonly="${this.readonly}"> 
+                </textarea>
+                ${ this.label ? html`<label class="z-textarea__label">${this.label}</label>`: '' }
             </div>
         `
     }
@@ -90,14 +121,14 @@ export class ZTextArea extends LitElement {
         super.connectedCallback()
 
         if (this.autoresize) {
-            window.addEventListener('resize', debounce(this.resizeField, 200))
+            window.addEventListener('resize', this.onResize)
         }
     }
 
     disconnectedCallback() {
         super.disconnectedCallback()
 
-        window.removeEventListener('resize', this.resizeField)
+        window.removeEventListener('resize', this.onResize)
     }
 
     inputAction(e) {
@@ -108,9 +139,13 @@ export class ZTextArea extends LitElement {
         }
     }
 
-    resizeField(e) {
-        const $input = this.shadowRoot.querySelector('.z-input__field')
+    onResize(e) {
+        // debounced resizedField (see constructor)
+        this.resizeField()
+    }
 
+    resizeField() {
+        const $input = this.shadowRoot.querySelector('.z-textarea__field')
         $input.style.height = 'auto'
         $input.style.height = $input.scrollHeight + 'px'
     }

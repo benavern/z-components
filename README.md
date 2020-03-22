@@ -18,7 +18,7 @@ Then import what you need
 
 ```js
 // main.js
-import { ZInput, ZTextArea, ZCheckbox, ZToggle, ZRadioGroup, ZRadio } from "./z-web-components"
+import { ZInput, ZTextArea, ZCheckbox, ZToggle, ZRadioGroup, ZRadio, ZTabGroup, ZTab } from "./z-web-components"
 
 customElements.define('z-input', ZInput)
 customElements.define('z-textarea', ZTextArea)
@@ -26,6 +26,8 @@ customElements.define('z-checkbox', ZCheckbox)
 customElements.define('z-toggle', ZToggle)
 customElements.define('z-radio-group', ZRadioGroup)
 customElements.define('z-radio', ZRadio)
+customElements.define('z-tab-group', ZTabGroup)
+customElements.define('z-tab', ZTab)
 ```
 
 And use it in your html
@@ -44,6 +46,12 @@ And use it in your html
     <z-radio label="radio input" value="1"></z-radio>
     <z-radio label="radio input" value="2"></z-radio>
 </z-radio-group>
+
+<z-tab-group>
+    <z-tab label="tab-1">This is tab 1.</z-tab>
+    <z-tab label="tab-2">This is tab 2.</z-tab>
+    <z-tab label="tab-3">This is tab 3.</z-tab>
+</z-tab-group>
 ```
 
 ### Prerequisites

@@ -69,6 +69,7 @@ export class ZTextArea extends LitElement {
             .z-textarea .z-textarea__field:invalid,
             .z-textarea .z-textarea__field:invalid:not(:placeholder-shown) {
                 border-bottom-color: var(--invalid);
+                box-shadow: none;
             }
 
             .z-textarea .z-textarea__field:invalid + .z-textarea__label,

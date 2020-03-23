@@ -104,6 +104,11 @@ export class ZToggle extends LitElement {
             .z-toggle input[type="checkbox"]:checked + .z-toggle__item .z-toggle__slider {
                 transform: translateX(1em)
             }
+
+            .z-toggle input[type="checkbox"]:focus + .z-toggle__item {
+                outline-style: auto;
+                outline-color: var(--on);
+            }
         `
     }
 
@@ -141,6 +146,7 @@ export class ZToggle extends LitElement {
     toggleChecked(e) {
         if (!this.disabled) {
             this.active = !this.active
+            this.shadowRoot.querySelector('input[type="checkbox"]').focus()
         }
     }
 }

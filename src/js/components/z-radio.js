@@ -112,7 +112,7 @@ export class ZRadio extends LitElement {
             <div class="z-radio ${this.disabled ? 'disabled' : ''}" @click="${this.check}">
                 ${ this.right ? html`<label class="z-radio__label">${this.label}</label>` : '' }
                 
-                <input type="radio" ?disabled="${this.disabled}" ?checked="${this.checked}" .name="${this.name}"/>
+                <input type="radio" ?disabled="${this.disabled}" .name="${this.name}"/>
                 <span class="z-radio__item"></span>
 
                 ${ !this.right ? html`<label class="z-radio__label">${this.label}</label>` : '' }
@@ -123,6 +123,9 @@ export class ZRadio extends LitElement {
     check(e) {
         if (!this.disabled && !this.checked) {
             this.checked = true
+
+            const radioInput = this.shadowRoot.querySelector('input[type="radio"]')
+            if (radioInput) radioInput.focus()
         }
     }
 
@@ -135,6 +138,12 @@ export class ZRadio extends LitElement {
                 }
             })
             this.dispatchEvent(event)
+
+            if (this.checked) {
+                this.shadowRoot.querySelector('input[type="radio"]').checked = true
+            } else {
+                this.shadowRoot.querySelector('input[type="radio"]').checked = false
+            }
         }
     }
 }

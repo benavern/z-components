@@ -111,6 +111,7 @@ export class ZCheckbox extends LitElement {
     toggleChecked(e) {
         if (!this.disabled) {
             this.checked = !this.checked
+            this.shadowRoot.querySelector('input[type="checkbox"]').focus()
         }
     }
 }

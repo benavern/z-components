@@ -30,7 +30,9 @@ export class ZRadioGroup extends LitElement {
     }
 
     firstUpdated() {
-        this.querySelectorAll('z-radio').forEach(radio => {
+        const radios = [...this.querySelectorAll('z-radio')]
+        
+        radios.forEach(radio => {
             if (this.name) {
                 radio.setAttribute('name', this.name)
             }
@@ -43,9 +45,26 @@ export class ZRadioGroup extends LitElement {
             })
         })
 
-        if (this.value) {
-            this.updateChildren()
-        }
+        this.shadowRoot.addEventListener('keydown', e => {
+            let index = null
+            const activableRadios = radios.filter(radio => !radio.hasAttribute('disabled'))
+            const currentIndex = activableRadios.findIndex(radio => radio.getAttribute('value') === this.value)
+
+            if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                index = currentIndex === activableRadios.length - 1 ? 0 : currentIndex + 1
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                index = currentIndex === 0 ? activableRadios.length - 1 : currentIndex - 1
+            } else if (e.key === 'Home') {
+                index = 0
+            } else if (e.key === 'End') {
+                index = activableRadios.length - 1
+            }
+
+            if (index !== null) {
+                e.preventDefault()
+                this.value = activableRadios[index].getAttribute('value')
+            }
+        })
     }
 
     updated(changedProperties) {
@@ -57,7 +76,7 @@ export class ZRadioGroup extends LitElement {
     updateChildren() {
         this.querySelectorAll('z-radio').forEach(radio => { 
             if (radio.getAttribute('value') === this.value) {
-                radio.setAttribute('checked', '')
+                radio.check()
             } else {
                 radio.removeAttribute('checked')
             }

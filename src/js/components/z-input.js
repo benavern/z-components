@@ -67,6 +67,7 @@ export class ZInput extends LitElement {
             .z-input .z-input__field:invalid,
             .z-input .z-input__field:invalid:not(:placeholder-shown) {
                 border-bottom-color: var(--invalid);
+                box-shadow: none;
             }
 
             .z-input .z-input__field:invalid + .z-input__label,

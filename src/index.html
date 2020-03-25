@@ -7,86 +7,115 @@
     <link rel="stylesheet" href="./css/main.scss">
 </head>
 <body>
-    <div class="container">
-        <h1>Z-Web-Components</h1>
-        
-        <hr>
+    <header>
+        <div class="container">
+            <h1 class="text-center">Z Web Components</h1>
+        </div>
+    </header>
 
-        <h2>Input</h2>
-        <z-input label="Text input"></z-input>
-        <z-input label="Text input with default value" value="default value"></z-input>
-        <z-input label="Text input disabled" value="disabled" disabled></z-input>
-        <z-input label="Text input required" required></z-input>
-        <z-input label="Text input readonly" value="readonly" readonly></z-input>
-        <z-input label="Color input" type="color"></z-input>
-        <z-input label="Date input" type="date"></z-input>
-        <z-input label="DateTime Local input" type="datetime-local"></z-input>
-        <z-input label="Email input" type="email"></z-input>
-        <z-input label="Month input" type="month"></z-input>
-        <z-input label="Number input" type="number"></z-input>
-        <z-input label="Password input" type="password"></z-input>
-        <z-input label="Search input" type="search"></z-input>
-        <z-input label="Tel input" type="tel"></z-input>
-        <z-input label="Time input" type="time"></z-input>
-        <z-input label="Url input" type="url"></z-input>
-        <z-input label="Week input" type="week"></z-input>
-        <z-input label="Yolo input" type="yolo"></z-input>
+    <z-tab-group centered>
+        <z-tab label="Input">
+            <div class="container">
+                <h2>Input</h2>
 
-        <hr>
+                <z-input label="Text input"></z-input>
+                <z-input label="Text input with default value" value="default value"></z-input>
+                <z-input label="Text input disabled" value="disabled" disabled></z-input>
+                <z-input label="Text input required" required></z-input>
+                <z-input label="Text input readonly" value="readonly" readonly></z-input>
+                <z-input label="Color input" type="color"></z-input>
+                <z-input label="Date input" type="date"></z-input>
+                <z-input label="DateTime Local input" type="datetime-local"></z-input>
+                <z-input label="Email input" type="email"></z-input>
+                <z-input label="Month input" type="month"></z-input>
+                <z-input label="Number input" type="number"></z-input>
+                <z-input label="Password input" type="password"></z-input>
+                <z-input label="Search input" type="search"></z-input>
+                <z-input label="Tel input" type="tel"></z-input>
+                <z-input label="Time input" type="time"></z-input>
+                <z-input label="Url input" type="url"></z-input>
+                <z-input label="Week input" type="week"></z-input>
+                <z-input label="Yolo input" type="yolo"></z-input>
+            </div>
+        </z-tab>
 
-        <h2>Textarea</h2>
-        <z-textarea label="Textarea input"></z-textarea>
-        <z-textarea label="Textarea input with default value" value="default value"></z-textarea>
-        <z-textarea label="Textarea input disabled" value="disabled" disabled></z-textarea>
-        <z-textarea label="Textarea input with autoresize" autoresize value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, ipsa optio dolorem iusto numquam inventore vitae accusamus fugit impedit aperiam pariatur consectetur nostrum excepturi! Aliquam, neque a tempora magni obcaecati provident ipsam. Repellendus, dolores natus nemo praesentium sequi aliquid consectetur voluptate magnam fuga illum tempora odio nobis ut qui repudiandae porro nam blanditiis nisi distinctio quasi rem fugit, eos magni? Consectetur, dolor deserunt. Nemo culpa ratione aliquid! Nihil, corporis reprehenderit, quasi, velit veniam modi doloremque alias ipsum eaque magni amet? A magni placeat voluptas tenetur fuga commodi, temporibus possimus quos dolor deleniti fugit ratione consequatur? Labore nemo, molestias modi ipsa commodi accusamus cum dolores, enim soluta temporibus debitis libero ut porro aperiam dolor fugit dolore neque itaque! Provident, cupiditate ex. Atque laborum explicabo ipsa eligendi, quod dignissimos accusantium repudiandae voluptatibus quis harum sunt molestiae in dolores cupiditate."></z-textarea>
-        <z-textarea label="Textarea input required" required></z-textarea>
-        <z-textarea label="Textarea input readonly" value="readonly" readonly></z-textarea>
+        <z-tab label="Textarea">
+            <div class="container">
+                <h2>Textarea</h2>
 
-        <hr>
+                <z-textarea label="Textarea input"></z-textarea>
+                <z-textarea label="Textarea input with default value" value="default value"></z-textarea>
+                <z-textarea label="Textarea input disabled" value="disabled" disabled></z-textarea>
+                <z-textarea label="Textarea input with autoresize" autoresize value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, ipsa optio dolorem iusto numquam inventore vitae accusamus fugit impedit aperiam pariatur consectetur nostrum excepturi! Aliquam, neque a tempora magni obcaecati provident ipsam. Repellendus, dolores natus nemo praesentium sequi aliquid consectetur voluptate magnam fuga illum tempora odio nobis ut qui repudiandae porro nam blanditiis nisi distinctio quasi rem fugit, eos magni? Consectetur, dolor deserunt. Nemo culpa ratione aliquid! Nihil, corporis reprehenderit, quasi, velit veniam modi doloremque alias ipsum eaque magni amet? A magni placeat voluptas tenetur fuga commodi, temporibus possimus quos dolor deleniti fugit ratione consequatur? Labore nemo, molestias modi ipsa commodi accusamus cum dolores, enim soluta temporibus debitis libero ut porro aperiam dolor fugit dolore neque itaque! Provident, cupiditate ex. Atque laborum explicabo ipsa eligendi, quod dignissimos accusantium repudiandae voluptatibus quis harum sunt molestiae in dolores cupiditate."></z-textarea>
+                <z-textarea label="Textarea input required" required></z-textarea>
+                <z-textarea label="Textarea input readonly" value="readonly" readonly></z-textarea>
+            </div>
+        </z-tab>
 
-        <h2>Checkbox</h2>
-        <z-checkbox label="checkbox input"></z-checkbox>
-        <z-checkbox label="checkbox input after label" right></z-checkbox>
-        <z-checkbox label="checkbox input checked" checked></z-checkbox>
-        <z-checkbox label="checkbox input disabled" disabled></z-checkbox>
-        <z-checkbox label="checkbox input checked & disabled" checked disabled></z-checkbox>
+        <z-tab label="Checkbox">
+            <div class="container">
+                <h2>Checkbox</h2>
 
-        <hr>
+                <z-checkbox label="checkbox input"></z-checkbox>
+                <z-checkbox label="checkbox input after label" right></z-checkbox>
+                <z-checkbox label="checkbox input checked" checked></z-checkbox>
+                <z-checkbox label="checkbox input disabled" disabled></z-checkbox>
+                <z-checkbox label="checkbox input checked & disabled" checked disabled></z-checkbox>
+            </div>
+        </z-tab>
 
-        <h2>Toggle</h2>
-        <z-toggle label="toggle input"></z-toggle>
-        <z-toggle label="toggle input after label" right></z-toggle>
-        <z-toggle label="toggle input active" active></z-toggle>
-        <z-toggle label="toggle input with custom inside labels" onlabel="ON" offlabel="OFF"></z-toggle>
-        <z-toggle label="toggle input disabled" disabled></z-toggle>
-        <z-toggle label="toggle input active & disabled" active disabled></z-toggle>
+        <z-tab label="Toggle">
+            <div class="container">
+                <h2>Toggle</h2>
+                
+                <z-toggle label="toggle input"></z-toggle>
+                <z-toggle label="toggle input after label" right></z-toggle>
+                <z-toggle label="toggle input active" active></z-toggle>
+                <z-toggle label="toggle input with custom inside labels" onlabel="ON" offlabel="OFF"></z-toggle>
+                <z-toggle label="toggle input disabled" disabled></z-toggle>
+                <z-toggle label="toggle input active & disabled" active disabled></z-toggle>
+            </div>
+        </z-tab>
 
-        <hr>
+        <z-tab label="Radio">
+            <div class="container">
+                <h2>Radio</h2>
 
-        <h2>Radio</h2>
-        <z-radio-group name="radio-demo" value="3">
-            <z-radio label="radio input" value="1"></z-radio>
-            <z-radio label="radio input after label" value="2" right></z-radio>
-            <z-radio label="radio input checked" value="3"></z-radio>
-            <z-radio label="radio input disabled" value="4" disabled></z-radio>
-        </z-radio-group>
+                <z-radio-group name="radio-demo" value="3">
+                    <z-radio label="radio input" value="1"></z-radio>
+                    <z-radio label="radio input after label" value="2" right></z-radio>
+                    <z-radio label="radio input checked" value="3"></z-radio>
+                    <z-radio label="radio input disabled" value="4" disabled></z-radio>
+                </z-radio-group>
+            </div>
+        </z-tab>
 
-        <hr>
+        <z-tab label="Tab">
+            <div class="container">
+                <h2>Tabs</h2>
 
-        <h2>Tabs</h2>
-        <z-tab-group>
-            <z-tab label="tab-1">Lorem ipsum dolor <a href="https://benjamin.caradeuc.info">sit</a> amet consectetur adipisicing elit. Suscipit, facere!</z-tab>
-            <z-tab label="tab-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, delectus minima nulla sed magni facilis tempore ipsam laborum quam maxime.</z-tab>
-            <z-tab label="tab-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea modi iste numquam nobis sunt repellendus doloremque inventore, reiciendis at. Dolore, at. Mollitia voluptatem, officia rerum repudiandae ex aperiam totam. Harum?</z-tab>
-        </z-tab-group>
+                <z-tab-group>
+                    <z-tab label="tab-1">Lorem ipsum dolor <a href="https://benjamin.caradeuc.info">sit</a> amet consectetur adipisicing elit. Suscipit, facere!</z-tab>
+                    <z-tab label="tab-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, delectus minima nulla sed magni facilis tempore ipsam laborum quam maxime.</z-tab>
+                    <z-tab label="tab-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea modi iste numquam nobis sunt repellendus doloremque inventore, reiciendis at. Dolore, at. Mollitia voluptatem, officia rerum repudiandae ex aperiam totam. Harum?</z-tab>
+                </z-tab-group>
 
-        <z-tab-group vertical>
-            <z-tab label="tab-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, facere!</z-tab>
-            <z-tab label="tab-2" active>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, delectus minima nulla sed magni facilis tempore ipsam laborum quam maxime.</z-tab>
-            <z-tab label="tab-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea modi iste numquam nobis sunt repellendus doloremque inventore, reiciendis at. Dolore, at. Mollitia voluptatem, officia rerum repudiandae ex aperiam totam. Harum?</z-tab>
-        </z-tab-group>
-    </div>
+                <z-tab-group vertical centered>
+                    <z-tab label="tab-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, facere!</z-tab>
+                    <z-tab label="tab-2" active>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, delectus minima nulla sed magni facilis tempore ipsam laborum quam maxime.</z-tab>
+                    <z-tab label="tab-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus natus incidunt nam, nemo odit quisquam ipsum! Id odit ab vitae cumque iure? Quae, eos ab eius quo, architecto voluptates repellat expedita, iure praesentium rerum asperiores est tenetur! Corporis, nobis! Officia, provident. Alias repudiandae expedita, deleniti quisquam facilis laudantium debitis qui, quaerat optio quod, quo saepe nulla rem ad assumenda explicabo sequi culpa itaque at reprehenderit perspiciatis veritatis error exercitationem. Similique necessitatibus cum tempora a, consequatur beatae quo vitae accusamus ab ad unde tempore cupiditate voluptatem eos repellat atque pariatur quae corporis. Assumenda nostrum nisi vel, ab rerum provident! Numquam officia, cupiditate quasi quam debitis ullam quas molestiae ipsum vel. Placeat voluptatem sit suscipit ab reprehenderit et iusto dolorum, temporibus optio molestias recusandae eligendi ad ipsa vitae, asperiores accusantium voluptas quasi obcaecati, saepe debitis rem aliquam quia ipsum. Voluptatem, excepturi recusandae! Ullam a aut ex id ab atque labore laborum molestias, accusamus, animi facilis. Mollitia adipisci provident eligendi, nisi nulla consequatur beatae autem dicta! Mollitia aliquam ab ea minima? Nam, est laboriosam soluta perferendis optio excepturi ipsa quas odit. Aliquid corrupti error minus dolor quod ullam quia illo corporis minima id quam quibusdam labore soluta tenetur, sequi reiciendis eius beatae blanditiis quos necessitatibus a ratione dicta quo aliquam! Quasi delectus minima eos! Quibusdam iure dolor, molestiae facere rem praesentium, fuga ut, dolore nam eius est minima! Illum, cum, itaque nobis cupiditate numquam architecto molestias adipisci ex culpa, deserunt odit excepturi reiciendis asperiores minima saepe earum quibusdam delectus provident pariatur doloremque! Rem labore facilis quos modi laudantium distinctio debitis. Excepturi distinctio ducimus doloribus consequuntur vero a itaque ab laboriosam reiciendis quos tenetur nobis, voluptatem dolorum? Rem fuga distinctio impedit rerum accusantium esse sunt libero voluptatem aspernatur exercitationem, nesciunt ab repellat unde dolore amet veniam voluptatum ipsum quas explicabo. Eos iure error assumenda!</z-tab>
+                </z-tab-group>
+            </div>
+        </z-tab>
+    </z-tab-group>
 
+    <footer>
+        <div class="container text-center">
+            <small>
+                &copy; <a href="https://benjamin.caradeuc.info">Benjamin Caradeuc</a> 2020
+            </small>
+        </div>
+    </footer>
     <script src="./js/main.js"></script>
 </body>
 </html>

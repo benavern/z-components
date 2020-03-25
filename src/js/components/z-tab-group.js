@@ -126,7 +126,7 @@ export class ZTabGroup extends LitElement {
     }
 
     firstUpdated() {
-        const tabs = [...this.querySelectorAll('z-tab')]
+        const tabs = [...this.children].filter(child => child.tagName === 'Z-TAB')
 
         this.labels = tabs.map((tab, i) => {
             return tab.getAttribute('label')

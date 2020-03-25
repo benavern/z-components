@@ -186,7 +186,8 @@ export class ZTabGroup extends LitElement {
     }
 
     updateChildren() {
-        const tabs = this.querySelectorAll('z-tab')
+        const tabs = [...this.children].filter(child => child.tagName === 'Z-TAB')
+
 
         tabs.forEach(tab => {
             if (tab.getAttribute('label') === this.active) {

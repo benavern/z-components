@@ -36,6 +36,10 @@ export class ZTabGroup extends LitElement {
                 flex-direction: column;
             }
 
+            .z-tab-group .z-tab-group__header.centered {
+                justify-content: center;
+            }
+
             .z-tab-group .z-tab-group__header .z-tab-group__header-item {
                 border: none;
                 border-bottom: .1em solid transparent;
@@ -82,6 +86,7 @@ export class ZTabGroup extends LitElement {
     static get properties() {
         return {
             vertical: { type: Boolean },
+            centered: { type: Boolean },
             active: { type: String, reflect: true },
             labels: { type: Array, attribute: false }
         };
@@ -114,7 +119,7 @@ export class ZTabGroup extends LitElement {
     render() {
         return html`
             <div class="z-tab-group ${this.vertical ? 'vertical' : ''}">
-                <div class="z-tab-group__header">
+                <div class="z-tab-group__header ${this.centered ? 'centered' : ''}">
                     ${this.labels}
                 </div>
 
@@ -145,6 +150,8 @@ export class ZTabGroup extends LitElement {
         }
         
         this.shadowRoot.addEventListener('keydown', e => {
+            if (!e.target || !e.target.classList.contains('z-tab-group__header-item')) return
+            
             let index = null
             const currentIndex = this._labels.indexOf(this.active)
             

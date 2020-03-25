@@ -2,7 +2,11 @@ import { LitElement, html, css } from 'lit-element'
 
 export class ZTab extends LitElement {
     static get styles() {
-        return css `            
+        return css `
+            :host {
+                display: block;
+            }
+
             * {
                 box-sizing: border-box;
             }

@@ -7,6 +7,8 @@ export class ZTabGroup extends LitElement {
             :host {
                 --active: var(--z-primary-color, #0088c5);
                 --blur: var(--z-secondary-color, #889);
+
+                display: block;
             }
 
             * {
@@ -66,6 +68,7 @@ export class ZTabGroup extends LitElement {
 
             .z-tab-group .z-tab-group__content {
                 border-top: 1px solid var(--blur);
+                flex: 1;
             }
 
             .z-tab-group.vertical .z-tab-group__content {
@@ -157,6 +160,7 @@ export class ZTabGroup extends LitElement {
 
             if (index !== null) {
                 e.preventDefault()
+                e.stopPropagation()
                 this.active = tabs[index].getAttribute('label')
 
                 // wait for the dom to be updated and then focus the newly active tab header button

@@ -93,6 +93,7 @@ export class ZTextArea extends LitElement {
     constructor() {
         super()
         this.onResize = debounce(this.onResize.bind(this), 200)
+        this._observer = null
     }
 
     render() {
@@ -115,6 +116,15 @@ export class ZTextArea extends LitElement {
     firstUpdated() {
         if (this.autoresize) {
             this.resizeField()
+
+            if ('IntersectionObserver' in window) {
+                // Resize on visibility change (when the textarea is inside a z-tab for example)
+                this._observer = new IntersectionObserver((entries) => {
+                    if (entries.some(entry => entry.isIntersecting)) this.resizeField()
+                })
+                const $input = this.shadowRoot.querySelector('.z-textarea__field')
+                this._observer.observe($input)
+            }
         }
     }
 
@@ -130,6 +140,10 @@ export class ZTextArea extends LitElement {
         super.disconnectedCallback()
 
         window.removeEventListener('resize', this.onResize)
+
+        if (this._observer) {
+            this._observer.disconnect()
+        }
     }
 
     inputAction(e) {

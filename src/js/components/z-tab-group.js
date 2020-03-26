@@ -46,6 +46,7 @@ export class ZTabGroup extends LitElement {
                 background: none;
                 margin: 0;
                 padding: 1em 3em;
+                color: inherit;
                 font-family: inherit;
                 font-size: inherit;
                 font-weight: bold;

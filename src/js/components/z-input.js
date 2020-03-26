@@ -41,10 +41,8 @@ export class ZInput extends LitElement {
                 color: inherit;
                 font-family: inherit;
                 font-size: inherit;
-                resize: vertical;
                 padding: 1em 0 .5em;
                 min-height: 2.5em;
-                resize: none;
             }
 
             .z-input .z-input__field[type="color"] {

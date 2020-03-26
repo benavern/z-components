@@ -7,10 +7,6 @@ export class ZRadioGroup extends LitElement {
             * {
                 box-sizing: border-box;
             }
-
-            .z-radio-group {
-                margin: 1em 0;
-            }
         `
     }
 

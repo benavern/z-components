@@ -19,7 +19,7 @@ export class ZRadio extends LitElement {
                 display: inline-block;
                 user-select: none;
                 position: relative;
-                margin: .25em 0;
+                margin: 1em 0;
             }
 
             .z-radio:hover {

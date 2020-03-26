@@ -51,6 +51,14 @@ export class ZInput extends LitElement {
                 border-bottom: none;
                 padding: .5em 0 0;
             }
+            
+            .z-input .z-input__field[type="search"] {
+                -webkit-appearance: textfield;
+            }
+
+            .z-input .z-input__field[type="search"]::-webkit-search-decoration {
+                -webkit-appearance: none;
+            }
 
             .z-input .z-input__field:focus,
             .z-input .z-input__field:not(:placeholder-shown) {

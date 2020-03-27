@@ -1,0 +1,14 @@
+{% set ex1 = '<z-textarea label="Textarea input"></z-textarea>' %}
+
+<div class="container">
+    <h2>Textarea</h2>
+
+    <pre data-lang="html"><code class="lang-html">{{ ex1 | escape }}</code></pre>
+
+    <z-textarea label="Textarea input"></z-textarea>
+    <z-textarea label="Textarea input with default value" value="default value"></z-textarea>
+    <z-textarea label="Textarea input disabled" value="disabled" disabled></z-textarea>
+    <z-textarea label="Textarea input with autoresize" autoresize value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, ipsa optio dolorem iusto numquam inventore vitae accusamus fugit impedit aperiam pariatur consectetur nostrum excepturi! Aliquam, neque a tempora magni obcaecati provident ipsam. Repellendus, dolores natus nemo praesentium sequi aliquid consectetur voluptate magnam fuga illum tempora odio nobis ut qui repudiandae porro nam blanditiis nisi distinctio quasi rem fugit, eos magni? Consectetur, dolor deserunt. Nemo culpa ratione aliquid! Nihil, corporis reprehenderit, quasi, velit veniam modi doloremque alias ipsum eaque magni amet? A magni placeat voluptas tenetur fuga commodi, temporibus possimus quos dolor deleniti fugit ratione consequatur? Labore nemo, molestias modi ipsa commodi accusamus cum dolores, enim soluta temporibus debitis libero ut porro aperiam dolor fugit dolore neque itaque! Provident, cupiditate ex. Atque laborum explicabo ipsa eligendi, quod dignissimos accusantium repudiandae voluptatibus quis harum sunt molestiae in dolores cupiditate."></z-textarea>
+    <z-textarea label="Textarea input required" required></z-textarea>
+    <z-textarea label="Textarea input readonly" value="readonly" readonly></z-textarea>
+</div>

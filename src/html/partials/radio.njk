@@ -1,0 +1,21 @@
+{% set ex1 = 
+'<z-radio-group name="radio-demo" value="3">
+    <z-radio label="radio input" value="1"></z-radio>
+    <z-radio label="radio input after label" value="2" right></z-radio>
+    <z-radio label="radio input checked" value="3"></z-radio>
+    <z-radio label="radio input disabled" value="4" disabled></z-radio>
+</z-radio-group>' %}
+
+<div class="container">
+    <h2>Radio</h2>
+
+    <pre data-lang="html"><code class="lang-html">{{ ex1 | escape }}</code></pre>
+
+
+    <z-radio-group name="radio-demo" value="3">
+        <z-radio label="radio input" value="1"></z-radio>
+        <z-radio label="radio input after label" value="2" right></z-radio>
+        <z-radio label="radio input checked" value="3"></z-radio>
+        <z-radio label="radio input disabled" value="4" disabled></z-radio>
+    </z-radio-group>
+</div>

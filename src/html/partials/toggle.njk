@@ -1,0 +1,14 @@
+{% set ex1 = '<z-toggle label="toggle input"></z-toggle>' %}
+
+<div class="container">
+    <h2>Toggle</h2>
+    
+    <pre data-lang="html"><code class="lang-html">{{ ex1 | escape }}</code></pre>
+
+    <z-toggle label="toggle input"></z-toggle>
+    <z-toggle label="toggle input after label" right></z-toggle>
+    <z-toggle label="toggle input active" active></z-toggle>
+    <z-toggle label="toggle input with custom inside labels" onlabel="ON" offlabel="OFF"></z-toggle>
+    <z-toggle label="toggle input disabled" disabled></z-toggle>
+    <z-toggle label="toggle input active & disabled" active disabled></z-toggle>
+</div>

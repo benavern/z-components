@@ -1,0 +1,32 @@
+{% set ex1 = 
+'<z-tab-group>
+    <z-tab label="tab-1">
+        Lorem ipsum dolor <a href="https://benjamin.caradeuc.info">sit</a> amet consectetur adipisicing elit. Suscipit, facere!
+    </z-tab>
+
+    <z-tab label="tab-2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, delectus minima nulla sed magni facilis tempore ipsam laborum quam maxime.
+    </z-tab>
+
+    <z-tab label="tab-3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea modi iste numquam nobis sunt repellendus doloremque inventore, reiciendis at. Dolore, at. Mollitia voluptatem, officia rerum repudiandae ex aperiam totam. Harum?
+    </z-tab>
+</z-tab-group>' %}
+
+<div class="container">
+    <h2>Tabs</h2>
+
+    <pre data-lang="html"><code class="lang-html">{{ ex1 | escape }}</code></pre>
+
+    <z-tab-group>
+        <z-tab label="tab-1">Lorem ipsum dolor <a href="https://benjamin.caradeuc.info">sit</a> amet consectetur adipisicing elit. Suscipit, facere!</z-tab>
+        <z-tab label="tab-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, delectus minima nulla sed magni facilis tempore ipsam laborum quam maxime.</z-tab>
+        <z-tab label="tab-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea modi iste numquam nobis sunt repellendus doloremque inventore, reiciendis at. Dolore, at. Mollitia voluptatem, officia rerum repudiandae ex aperiam totam. Harum?</z-tab>
+    </z-tab-group>
+
+    <z-tab-group vertical centered>
+        <z-tab label="tab-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, facere!</z-tab>
+        <z-tab label="tab-2" active>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, delectus minima nulla sed magni facilis tempore ipsam laborum quam maxime.</z-tab>
+        <z-tab label="tab-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus natus incidunt nam, nemo odit quisquam ipsum! Id odit ab vitae cumque iure? Quae, eos ab eius quo, architecto voluptates repellat expedita, iure praesentium rerum asperiores est tenetur! Corporis, nobis! Officia, provident. Alias repudiandae expedita, deleniti quisquam facilis laudantium debitis qui, quaerat optio quod, quo saepe nulla rem ad assumenda explicabo sequi culpa itaque at reprehenderit perspiciatis veritatis error exercitationem. Similique necessitatibus cum tempora a, consequatur beatae quo vitae accusamus ab ad unde tempore cupiditate voluptatem eos repellat atque pariatur quae corporis. Assumenda nostrum nisi vel, ab rerum provident! Numquam officia, cupiditate quasi quam debitis ullam quas molestiae ipsum vel. Placeat voluptatem sit suscipit ab reprehenderit et iusto dolorum, temporibus optio molestias recusandae eligendi ad ipsa vitae, asperiores accusantium voluptas quasi obcaecati, saepe debitis rem aliquam quia ipsum. Voluptatem, excepturi recusandae! Ullam a aut ex id ab atque labore laborum molestias, accusamus, animi facilis. Mollitia adipisci provident eligendi, nisi nulla consequatur beatae autem dicta! Mollitia aliquam ab ea minima? Nam, est laboriosam soluta perferendis optio excepturi ipsa quas odit. Aliquid corrupti error minus dolor quod ullam quia illo corporis minima id quam quibusdam labore soluta tenetur, sequi reiciendis eius beatae blanditiis quos necessitatibus a ratione dicta quo aliquam! Quasi delectus minima eos! Quibusdam iure dolor, molestiae facere rem praesentium, fuga ut, dolore nam eius est minima! Illum, cum, itaque nobis cupiditate numquam architecto molestias adipisci ex culpa, deserunt odit excepturi reiciendis asperiores minima saepe earum quibusdam delectus provident pariatur doloremque! Rem labore facilis quos modi laudantium distinctio debitis. Excepturi distinctio ducimus doloribus consequuntur vero a itaque ab laboriosam reiciendis quos tenetur nobis, voluptatem dolorum? Rem fuga distinctio impedit rerum accusantium esse sunt libero voluptatem aspernatur exercitationem, nesciunt ab repellat unde dolore amet veniam voluptatum ipsum quas explicabo. Eos iure error assumenda!</z-tab>
+    </z-tab-group>
+</div>

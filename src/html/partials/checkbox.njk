@@ -1,12 +1,42 @@
-{% set ex1 = '<z-checkbox label="checkbox input"></z-checkbox>' %}
+{% from "../macros/example.njk" import example %}
+
+{% set disabledExample %} 
+<z-checkbox label="checkbox input disabled" disabled></z-checkbox>
+<z-checkbox label="checkbox input checked & disabled" checked disabled></z-checkbox>
+{% endset %}
+
 <div class="container">
     <h2>Checkbox</h2>
 
-    <pre data-lang="html"><code class="lang-html">{{ ex1 | escape }}</code></pre>
+    <p><code>{{ '<z-checkbox>' | escape }}</code> is a component that provides the same functionality as a native <code>{{ '<input type="checkbox">' | escape }}</code> enhanced with a better and unified design.</p>
 
-    <z-checkbox label="checkbox input"></z-checkbox>
-    <z-checkbox label="checkbox input after label" right></z-checkbox>
-    <z-checkbox label="checkbox input checked" checked></z-checkbox>
-    <z-checkbox label="checkbox input disabled" disabled></z-checkbox>
-    <z-checkbox label="checkbox input checked & disabled" checked disabled></z-checkbox>
+    {{ example(template='<z-checkbox label="checkbox input"></z-checkbox>', about="checkbox input") }}
+
+    <hr>
+    <h3>Attributes</h3>
+
+    <h4>Label</h4>
+
+    <p>The <b>label</b> attribute provides a clickable label for the <code>{{ '<z-checkbox>' | escape }}</code> component.</p>
+
+    {{ example(template='<z-checkbox label="checkbox input"></z-checkbox>', about="checkbox input label") }}
+
+    <h4>Right</h4>
+
+    <p>The <b>right</b> attribute makes the <code>{{ '<z-checkbox>' | escape }}</code> component appear after its label.</p>
+
+    {{ example(template='<z-checkbox label="checkbox input after label" right></z-checkbox>', about="checkbox input after label") }}
+
+    <h4>Checked</h4>
+
+    <p>The <b>checked</b> attribute is watched and makes the checkbox beeing checked if provided (no value needed).</p>
+    <p>This attribute can also be used for setting a default value to the component.</p>
+
+    {{ example(template='<z-checkbox label="checkbox input checked" checked></z-checkbox>', about="checkbox input checked") }}
+
+    <h4>Disabled</h4>
+
+    <p>The <b>disabled</b> attribute prevents the checkbox from beeing used and gives it an understandable styling.</p>
+
+    {{ example(template=disabledExample, about="checkbox input disabled") }}
 </div>

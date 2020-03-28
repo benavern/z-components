@@ -1,14 +1,61 @@
-{% set ex1 = '<z-toggle label="toggle input"></z-toggle>' %}
+{% from "../macros/example.njk" import example %}
+
+{% set labelsExample %}
+<z-toggle label="toggle input with custom inside labels" onlabel="ON" offlabel="OFF"></z-toggle>
+<z-toggle label="toggle input with custom inside labels" onlabel="✓"></z-toggle>
+<z-toggle label="toggle input with custom inside labels" offlabel="✗"></z-toggle>
+{% endset %}
+
+{% set disabledExample %}
+<z-toggle label="toggle input disabled" disabled></z-toggle>
+<z-toggle label="toggle input active & disabled" active disabled></z-toggle>
+{% endset %}
 
 <div class="container">
     <h2>Toggle</h2>
-    
-    <pre data-lang="html"><code class="lang-html">{{ ex1 | escape }}</code></pre>
 
-    <z-toggle label="toggle input"></z-toggle>
-    <z-toggle label="toggle input after label" right></z-toggle>
-    <z-toggle label="toggle input active" active></z-toggle>
-    <z-toggle label="toggle input with custom inside labels" onlabel="ON" offlabel="OFF"></z-toggle>
-    <z-toggle label="toggle input disabled" disabled></z-toggle>
-    <z-toggle label="toggle input active & disabled" active disabled></z-toggle>
+    <p><code>{{ '<z-toggle>' | escape }}</code> is a component that provides the same functionality as a native <code>{{ '<input type="checkbox">' | escape }}</code> enhanced with a better and unified design.</p>
+    <div class="notif success">This component has the same api that the <code>{{ '<z-checkbox>' | escape }}</code> with some additional features and a different design.</div>
+
+    {{ example (template='<z-toggle label="toggle input"></z-toggle>', about="Basic toggle") }}
+    
+    <hr>
+    <h3>Attributes</h3>
+
+    <h4>Label</h4>
+
+    <p>The <b>label</b> attribute provides a clickable label for the <code>{{ '<z-toggle>' | escape }}</code> component.</p>
+
+    <h4>Right</h4>
+
+    <p>The <b>right</b> attribute makes the <code>{{ '<z-toggle>' | escape }}</code> component appear after its label.</p>
+
+    {{ example(template='<z-toggle label="toggle input after label" right></z-toggle>', about="toggle input after label") }}
+
+    <h4>Active</h4>
+
+    <p>The <b>active</b> attribute is watched and makes the toggle beeing active if provided (no value needed).</p>
+    <p>This attribute can also be used for setting a default value to the component.</p>
+
+    {{ example(template='<z-toggle label="toggle input active" active></z-toggle>', about="toggle input active") }}
+
+    <h4>Onlabel & Offlabel</h4>
+
+    <p>The <b>onlabel</b> and <b>offlabel</b> attributes add little labels inside the <code>{{ '<z-toggle>' | escape }}</code> component.</p>
+
+    <div class="alert warn">
+        Only 3 letters of the labels will usualy be visible.
+    </div>
+
+    <div class="alert success">
+        You can use unicode symbols as inside labels.
+    </div>
+
+    {{ example(template=labelsExample, about="toggle input with custom inside labels") }}
+
+    <h4>Disabled</h4>
+
+    <p>The <b>disabled</b> attribute prevents the toggle from beeing used and gives it an understandable styling.</p>
+
+    {{ example(template=disabledExample, about="toggle input disabled") }}
 </div>

@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: $normal-font;
     font-size: 100%;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -19,11 +19,11 @@ main {
 }
 
 h1, h2, h3, h4, p {
-    margin: .5em 0;
+    margin: .75em 0 .25em;
 }
 
 h1 {
-    font-family: 'Sedgwick Ave', cursive;
+    font-family: $funny-font;
     font-size: 3rem;
     font-weight: 400;
     line-height: 1;
@@ -32,6 +32,10 @@ h1 {
 h2 {
     font-weight: 100;
     font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
 }
 
 h3, h4 {
@@ -49,43 +53,35 @@ a {
     text-decoration: none;
 }
 
+ul {
+    list-style-position: inside;
+    li {
+        padding: .25rem 1rem;
+    }
+}
+
+code {
+    background-color: silver;
+    color: #000;
+    font-family: $monospace-font;
+    display: inline-block;
+    border-radius: .25rem;
+    padding: .25em .75em .15em;
+}
+
+
 pre {
     margin: 1rem 0;
     position: relative;
 
-    &[data-lang] {
-        &:before {
-            content: attr(data-lang);
-            font-size: x-small;
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: silver;
-            padding: .25rem 1rem;
-            border-bottom-right-radius: .25rem;
-        }
-    
-        .hljs {
-            padding: 2rem 1rem 1rem;
-        }
-    }
-
-    .hljs {
-        padding: 1rem;
-        font-size: small;
-    }
-
     code {
-        &.lang-bash:before {
-            content: '>_';
-            font-weight: bold;
-            user-select: none;
-            margin-right: .5em;
-            color: green;
-        }
+        background-color: #222;
+        color: #fff;
+        display: block;
+        border-radius: 0;
     }
 }
 
 ::selection {
-    background-color: var(--z-primary-color);
+    background-color: rgba($green, .5);
 }

@@ -8,33 +8,49 @@ customElements.define('z-radio', ZRadio)
 customElements.define('z-tab-group', ZTabGroup)
 customElements.define('z-tab', ZTab)" %}
 
+{% set cssColors =
+':root {
+    --z-primary-color: #3A7;
+    --z-secondary-color: #999;
+    --z-danger-color: #D22;
+}'%}
+
 <div class="container">
     <h2>Quick start</h2>
 
     <p>Get started with <b>z-web-components</b>, an opinionated set of web components for building strong and fast applications.</p>
 
+    <hr>
     <h3>Installation</h3>
 
     <h4>Via package manager</h4>
 
     <p>Install <b>z-web-components</b> into nearly any project with some of the most popular package managers.</p>
 
-    <pre data-lang="bash"><code class="lang-bash">npm i z-web-components</code></pre>
-    <pre data-lang="bash"><code class="lang-bash">yarn add z-web-components</code></pre>
+    <pre data-about="With npm"><code class="lang-bash">npm i z-web-components</code></pre>
+    <pre data-about="With yarn"><code class="lang-bash">yarn add z-web-components</code></pre>
 
     <p>Import a list of the components you want to use in your website.</p>
 
-    <pre data-lang="javascript"><code class="lang-javascript">import { ZInput, ZTextArea, ZCheckbox, ZToggle, ZRadioGroup, ZRadio, ZTabGroup, ZTab } from 'z-web-components'</code></pre>
+    <pre><code class="lang-javascript">import { ZInput, ZTextArea, ZCheckbox, ZToggle, ZRadioGroup, ZRadio, ZTabGroup, ZTab } from 'z-web-components'</code></pre>
 
     <h4>Via CDN</h4>
 
     <p>Soon...</p>
 
-    {# <pre data-lang="html"><code class="lang-html">{{ '<script src="//unpkg.com/z-web-components"></script>' | escape }}</code></pre> #}
-
+    {# <pre><code class="lang-html">{{ '<script src="//unpkg.com/z-web-components"></script>' | escape }}</code></pre> #}
+    
+    <hr>
     <h3>Usage</h3>
 
     <p>Define the elements to be used in your website with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define">customElement.define</a> methode.</p>
 
-    <pre data-lang="javascript"><code class="lang-javascript">{{ createElements | escape }}</code></pre>
+    <pre><code class="lang-javascript">{{ createElements | escape }}</code></pre>
+
+    <hr>
+    <h3>Customisation</h3>
+
+    <p>For now, only 3 colors are customizable.</p>
+
+    <pre data-about="css colors"><code class="lang-css">{{ cssColors | escape }}</code></pre>
 </div>

@@ -4,8 +4,8 @@ header {
 }
 
 footer {
-    background-color: var(--z-secondary-color);
-    color: #fff;
+    border-top: 1px solid var(--z-secondary-color);
+    padding: 1rem 0;
 }
 
 z-checkbox,

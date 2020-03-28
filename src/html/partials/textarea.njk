@@ -1,0 +1,76 @@
+{% from "../macros/example.njk" import example %}
+
+{% set requiredExample %}
+<z-textarea label="Textarea required" required></z-textarea>
+<z-textarea label="Textarea required" value="default value" required></z-textarea>
+{% endset %}
+
+{% set disabledExample %}
+<z-textarea label="Textarea disabled" disabled></z-textarea>
+<z-textarea label="Textarea disabled" value="default value" disabled></z-textarea>
+{% endset %}
+
+{% set readonlyExample %}
+<z-textarea label="Textarea readonly" readonly></z-textarea>
+<z-textarea label="Textarea readonly" value="default value" readonly></z-textarea>
+{% endset %}
+
+{% set autoresizeExample %}
+<z-textarea 
+    label="Textarea with autoresize" 
+    value="Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, ipsa optio dolorem iusto numquam inventore vitae accusamus fugit impedit aperiam pariatur consectetur nostrum excepturi! Aliquam, neque a tempora magni obcaecati provident ipsam. Repellendus, dolores natus nemo praesentium sequi aliquid consectetur voluptate magnam fuga illum tempora odio nobis ut qui repudiandae porro nam blanditiis nisi distinctio quasi rem fugit, eos magni? Consectetur, dolor deserunt. Nemo culpa ratione aliquid! Nihil, corporis reprehenderit, quasi, velit veniam modi doloremque alias ipsum eaque magni amet? A magni placeat voluptas tenetur fuga commodi, temporibus possimus quos dolor deleniti fugit ratione consequatur? Labore nemo, molestias modi ipsa commodi accusamus cum dolores, enim soluta temporibus debitis libero ut porro aperiam dolor fugit dolore neque itaque! Provident, cupiditate ex. Atque laborum explicabo ipsa eligendi, quod dignissimos accusantium repudiandae voluptatibus quis harum sunt molestiae in dolores cupiditate."
+    autoresize>
+</z-textarea>
+{% endset %}
+
+<div class="container">
+    <h2>Textarea</h2>
+
+    <p><code>{{ '<z-textarea>' | escape }}</code> is a component that provides the same functionality as a native <code>{{ '<textarea>' | escape }}</code> enhanced with material like design and animations.</p>
+
+    <div class="notif warn">The <code>{{ '<z-textarea>' | escape }}</code> component uses only it's <b>value</b> attribute unlike the <code>{{ '<textarea>' | escape }}</code> that can use its <b>innerHTML</b> as a value.</div>
+
+    {{ example(template='<z-textarea label="Textarea"></z-textarea>', about="basic textarea") }}
+
+    <hr>
+    <h3>Attributes</h3>
+
+    <h4>Value</h4>
+
+    <p>The <b>value</b> attribute is watched and will change as the textarea value changes.</p>
+    <p>This attribute can also be used for setting a default value to the component.</p>
+
+    {{ example(template='<z-textarea label="Textarea with default value" value="default value"></z-textarea>', about="Textarea with default value") }}
+
+    <h4>Required</h4>
+
+    <p>The <b>required</b> attribute makes the textarea color turn <b style="color: var(--z-danger-color);">red</b> if no value is set.</p>
+
+    {{ example(template=requiredExample, about="Textarea required") }}
+
+    <h4>Disabled</h4>
+
+    <p>The <b>disabled</b> attribute prevents the textarea from being used and gives it an understandable styling.</p>
+
+    {{ example(template=disabledExample, about="Textarea disabled") }}
+
+    <h4>Readonly</h4>
+
+    <p>The <b>readonly</b> attribute prevents the textarea value from being changed without changing its styling.</p>
+
+    {{ example(template=readonlyExample, about="Textarea readonly") }}
+
+    <h4>Autoresize</h4>
+
+    <p>The <b>autoresize</b> attribute makes the height of the textarea always the size of the text.</p>
+    
+    <div class="notif success">
+        The height of the textarea will be re-calculated each time you type something, you resize the window, you display or hide the textarea.
+    </div>
+
+    <div class="notif warn">
+        Activating the <b>autoresize</b> attribute disables the ability to manualy resize the textarea.
+    </div>
+
+    {{ example(template=autoresizeExample, about="Textarea with autoresize") }}
+</div>

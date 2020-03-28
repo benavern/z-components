@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z Web Components</title>
+    <link rel="stylesheet" href="./css/main.scss">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700;900&family=Sedgwick+Ave">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="text-center">Z Web Components</h1>
+        </div>
+    </header>
+
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <small>
+                Made with <span style="color: var(--z-danger-color); font-size: 1.5rem;">&#10084;</span> by <a href="https://benjamin.caradeuc.info/">Benjamin Caradeuc</a>
+            </small>
+        </div>
+    </footer>
+    
+    <script src="./js/main.js"></script>
+</body>
+</html>

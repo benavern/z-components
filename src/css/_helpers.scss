@@ -1,0 +1,108 @@
+.container {
+    width: 100%;
+    max-width: $site-width;
+    padding: 1rem;
+    margin: 0 auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+pre {
+    box-shadow: $box-shadow;
+
+    &[data-about] {
+        &:before {
+            content: attr(data-about);
+            user-select: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: silver;
+            padding: .25rem 1rem;
+            border-bottom-right-radius: .25rem;
+            font-variant: small-caps;
+            text-transform: lowercase;
+        }
+    
+        .hljs {
+            padding: 2.5rem 1rem 1rem;
+        }
+    }
+
+    .hljs {
+        padding: 1rem;
+        font-size: small;
+    }
+
+    code {
+        &.lang-bash:before {
+            content: '>_';
+            font-weight: bold;
+            user-select: none;
+            margin-right: .5em;
+            color: $green;
+        }
+
+        &::-webkit-scrollbar {
+            width: .5rem;
+            height: .5rem;
+            background-color: transparent;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: var(--z-secondary-color);
+            border-radius: .5rem;
+        }
+    }
+}
+
+.example-wrapper {
+    margin: 1.5rem 0;
+    box-shadow: $box-shadow;
+    overflow: hidden;
+
+    pre {
+        margin: 0;
+        box-shadow: none;
+    }
+    
+    .example {
+        padding: 1rem;
+        border: 1px solid var(--z-secondary-color);
+        border-top: none;
+    }
+}
+
+.notif {
+    margin: 1rem 0;
+    padding: 1rem;
+    // border-radius: .25rem;
+    
+    color: $gray;
+    border: 1px solid $gray;
+    background-color: rgba($gray, .25);
+    box-shadow: 0 0 .5rem rgba($gray, .25);
+    
+    &.success {
+        color: $green;
+        border: 1px solid $green;
+        background-color: rgba($green, .25);
+        box-shadow: 0 0 .5rem rgba($green, .25);
+    }
+
+    &.warn {
+        color: $orange;
+        border: 1px solid $orange;
+        background-color: rgba($orange, .25);
+        box-shadow: 0 0 .5rem rgba($orange, .25);
+    }
+    
+    &.danger {
+        color: $red;
+        border: 1px solid $red;
+        background-color: rgba($red, .25);
+        box-shadow: 0 0 .5rem rgba($red, .25);
+    }
+}

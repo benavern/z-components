@@ -1,0 +1,33 @@
+{% extends "./html/base.njk" %}
+
+{% block main %}
+    <z-tab-group centered>
+        <z-tab label="Quick start">
+            {% include "./html/partials/home.njk" %}
+        </z-tab>
+
+        <z-tab label="Input">
+            {% include "./html/partials/input.njk" %}
+        </z-tab>
+
+        <z-tab label="Textarea">
+            {% include "./html/partials/textarea.njk" %}
+        </z-tab>
+
+        <z-tab label="Checkbox">
+            {% include "./html/partials/checkbox.njk" %}
+        </z-tab>
+
+        <z-tab label="Toggle">
+            {% include "./html/partials/toggle.njk" %}
+        </z-tab>
+
+        <z-tab label="Radio">
+            {% include "./html/partials/radio.njk" %}
+        </z-tab>
+
+        <z-tab label="Tab">
+            {% include "./html/partials/tab.njk" %}
+        </z-tab>
+    </z-tab-group>
+{% endblock %}

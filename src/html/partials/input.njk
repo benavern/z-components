@@ -1,0 +1,99 @@
+{% from "../macros/example.njk" import example %}
+
+{% set typeExample %}
+<z-input type="color" label="color input"></z-input>
+<z-input type="date" label="date input"></z-input>
+<z-input type="datetime-local" label="datetime-local input"></z-input>
+<z-input type="email" label="email input"></z-input>
+<z-input type="month" label="month input"></z-input>
+<z-input type="number" label="number input"></z-input>
+<z-input type="password" label="password input"></z-input>
+<z-input type="search" label="search input"></z-input>
+<z-input type="tel" label="tel input"></z-input>
+<z-input type="text" label="text input"></z-input>
+<z-input type="time" label="time input"></z-input>
+<z-input type="url" label="url input"></z-input>
+<z-input type="week" label="week input"></z-input>
+{% endset %}
+
+{% set requiredExample %}
+<z-input label="Text input required" required></z-input>
+<z-input label="Text input required" value="default value" required></z-input>
+{% endset %}
+
+{% set disabledExample %}
+<z-input label="Text input disabled" disabled></z-input>
+<z-input label="Text input disabled" value="default value" disabled></z-input>
+{% endset %}
+
+{% set readonlyExample %}
+<z-input label="Text input readonly" readonly></z-input>
+<z-input label="Text input readonly" value="default value" readonly></z-input>
+{% endset %}
+
+<div class="container">
+    <h2>Input</h2>
+
+    <p><code>{{ '<z-input>' | escape }}</code> is a component that provides the same functionality as a native <code>{{ '<input>' | escape }}</code> enhanced with material like design and animations.</p>
+
+    {{ example(template='<z-input label="Text input"></z-input>', about="Basic input") }}
+
+    <hr>
+    <h3>Attributes</h3>
+
+    <h4>Label</h4>
+
+    <p>The <b>label</b> attribute is the text that appreares as a placeholder when the input is not focused or is empty and as a label otherwize.</p>
+
+    <h4>Type</h4>
+
+    <p>All the native <code>{{ '<input>' | escape }}</code> types are supported by the <code>{{ '<z-input>' | escape }}</code> component.</p>
+    <p>Here is a list of those that have already been tested :</p>
+
+    <ul>
+        <li>color</li>
+        <li>date</li>
+        <li>datetime-local</li>
+        <li>email</li>
+        <li>month</li>
+        <li>number</li>
+        <li>password</li>
+        <li>search</li>
+        <li>tel</li>
+        <li>text</li>
+        <li>time</li>
+        <li>url</li>
+        <li>week</li>
+    </ul>
+
+    {{ example(template=typeExample, about="all types inputs") }}
+
+    <p>If you provide an unknown type, the component will default to the <b>text</b> type.</p>
+
+    {{ example(template='<z-input label="Yolo input" type="yolo"></z-input>', about="invalid input type") }}
+
+    <h4>Value</h4>
+
+    <p>The <b>value</b> attribute is watched and will change as the input value changes.</p>
+    <p>This attribute can also be used for setting a default value to the component.</p>
+
+    {{ example(template='<z-input label="Text input with default value" value="default value"></z-input>', about="Text input with default value") }}
+
+    <h4>Required</h4>
+
+    <p>The <b>required</b> attribute makes the input color turn <b style="color: var(--z-danger-color);">red</b> if no value is set.</p>
+
+    {{ example(template=requiredExample, about="Text input required") }}
+
+    <h4>Disabled</h4>
+
+    <p>The <b>disabled</b> attribute prevents the input from being used and gives it an understandable styling.</p>
+    
+    {{ example(template=disabledExample, about="Text input disabled") }}
+
+    <h4>Readonly</h4>
+
+    <p>The <b>readonly</b> attribute prevents the input value from being changed without changing its styling.</p>
+
+    {{ example(template=readonlyExample, about="Text input readonly") }}
+</div>

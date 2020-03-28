@@ -1,0 +1,74 @@
+{% from "../macros/example.njk" import example %}
+
+{% set minimalExample %}
+<z-tab-group>
+    <z-tab label="tab-1">
+        Lorem ipsum dolor <a href="https://benjamin.caradeuc.info">sit</a> amet consectetur adipisicing elit. Suscipit, facere!
+    </z-tab>
+
+    <z-tab label="tab-2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, delectus minima nulla sed magni facilis tempore ipsam laborum quam maxime.
+    </z-tab>
+
+    <z-tab label="tab-3">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea modi iste numquam nobis sunt repellendus doloremque inventore, reiciendis at. Dolore, at. Mollitia voluptatem, officia rerum repudiandae ex aperiam totam. Harum?
+    </z-tab>
+</z-tab-group>
+{% endset%}
+
+{% set verticalExample %}
+<z-tab-group vertical>
+    <z-tab label="tab-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, facere!</z-tab>
+    <z-tab label="tab-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, delectus minima nulla sed magni facilis tempore ipsam laborum quam maxime.</z-tab>
+</z-tab-group>
+{% endset %}
+
+{% set centeredExample %}
+<z-tab-group centered>
+    <z-tab label="tab-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit, facere!</z-tab>
+    <z-tab label="tab-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, delectus minima nulla sed magni facilis tempore ipsam laborum quam maxime.</z-tab>
+</z-tab-group>
+
+<z-tab-group centered vertical>
+    <z-tab label="tab-1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae ab mollitia nobis consequatur, temporibus quam sunt voluptatibus! Et adipisci maiores, minima fugiat pariatur reprehenderit similique asperiores accusantium laudantium beatae modi eligendi quos molestiae doloremque officia! Dolorum ab placeat eligendi? Sit a voluptatum dignissimos sapiente, quo amet molestiae in perspiciatis consequuntur accusamus inventore omnis ad repellendus, facilis, tempora maxime ea harum? Doloribus cupiditate explicabo veniam distinctio non dolor labore quas asperiores, perferendis, iusto maiores nisi inventore nulla incidunt corporis nihil deserunt nostrum culpa quia, perspiciatis assumenda facilis. Temporibus vel sapiente beatae optio laboriosam soluta aliquid natus quaerat amet iste sed asperiores eligendi, exercitationem delectus tenetur quasi eos tempore blanditiis possimus id, placeat vero. Dolore dolor laborum modi sunt vitae. Incidunt, culpa hic repellendus molestias ullam quo a quas rerum quisquam illo est eius, quaerat laboriosam magnam rem iusto ex in alias, ratione saepe. Vel voluptatem alias molestias minus dolore veritatis modi autem quis odit. Esse voluptatem, neque asperiores quam itaque deserunt totam et inventore! Ex maiores error aliquam maxime vel perspiciatis mollitia adipisci odit itaque eveniet molestias eius, libero veritatis. Veniam, esse alias nisi beatae vero minus corrupti numquam ab culpa eos impedit deserunt quos sequi vitae libero consectetur voluptatem? Ipsa natus hic facilis dignissimos vitae, rerum inventore doloremque eaque fugiat et quo itaque necessitatibus tempora, obcaecati distinctio impedit tenetur dolorem aspernatur placeat molestias atque enim. Molestias quidem fugit quas quos, quia praesentium ex, explicabo tempora consectetur, deserunt placeat autem sapiente. A tempora sequi, ullam consectetur cum magni nemo? Dicta voluptatem laborum ipsa facilis porro aperiam corrupti repellendus ex pariatur excepturi. Nostrum libero earum repellendus quae eum repudiandae amet vel numquam quasi neque velit labore, sequi tempora accusamus debitis reiciendis impedit eaque consequatur illum placeat voluptates delectus corrupti. Tenetur consequatur, sit ab vel sapiente necessitatibus culpa magni voluptatem aliquid minima rerum.</z-tab>
+    <z-tab label="tab-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione, delectus minima nulla sed magni facilis tempore ipsam laborum quam maxime.</z-tab>
+</z-tab-group>
+{% endset %}
+
+<div class="container">
+    <h2>Tab-group & Tab</h2>
+
+    <p><code>{{ '<z-tab-group>' | escape }}</code> is a component that displays <code>{{ '<z-tab>' | escape }}</code> components one at a time, and adds a menu so that you can choose which one to display.</p>
+    <code>{{ '<z-tab>' | escape }}</code> is a component that wraps its content so that the <code>{{ '<z-tab-group>' | escape }}</code> can retreive it.</p>
+
+    {{ example(template=minimalExample, about="Basic tabs") }}
+
+    <hr>
+    <h3>Attributes</h3>
+
+    <h4>Vertical (z-tab-group)</h4>
+
+    <p>The <b>vertical</b> attribute changes the layout of the tabs menu by putting it to the left instead of the top of the tab group.</p>
+
+    {{ example(template=verticalExample, about="Vertical tabs menu") }}
+
+    <h4>Centered (z-tab-group)</h4>
+
+    <p>The <b>centered</b> attribute changes the layout of the tabs menu by making it centered (horizontaly or verticaly)</p>
+
+    {{ example(template=centeredExample, about="Centered tab menu") }}
+
+    <h4>Label (z-tab)</h4>
+
+    <p>The <b>label</b> attribute is used to build the menu and provides a clickable button to show the corresponding tab.</p>
+
+    <hr>
+    <h3>Accessibility</h3>
+
+    <p>Soon...</p>
+
+    <hr>
+    <h3>Events</h3>
+
+    <p>Soon...</p>
+</div>

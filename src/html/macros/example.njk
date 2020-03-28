@@ -1,0 +1,9 @@
+{% macro example(template="", about, lang="html") %}
+    <div class="example-wrapper">
+        <pre data-about="{{about}}"><code class="lang-{{lang}}">{{ template | trim | escape }}</code></pre>
+        
+        <div class="example">
+            {{ template | safe }}
+        </div>
+    </div>
+{% endmacro %}

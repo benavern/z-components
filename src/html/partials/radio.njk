@@ -1,0 +1,95 @@
+{% from "../macros/example.njk" import example %}
+
+{% set minimalExample %}
+<z-radio-group>
+    <z-radio label="radio input 1" value="1"></z-radio>
+    <z-radio label="radio input 2" value="2"></z-radio>
+</z-radio-group>
+{% endset %}
+
+{% set nameExample %} 
+<z-radio-group name="z-radio-demo">
+    <z-radio label="radio input 1" value="1"></z-radio>
+    <z-radio label="radio input 2" value="2"></z-radio>
+</z-radio-group>
+{% endset %}
+
+{% set valueExample %}
+<z-radio-group value="2">
+    <z-radio label="radio input" value="1"></z-radio>
+    <z-radio label="radio input" value="2"></z-radio>
+</z-radio-group>
+{% endset %}
+
+{% set rightExample %}
+<z-radio-group>
+    <z-radio label="radio input 1 right" value="1" right></z-radio>
+    <z-radio label="radio input 2" value="2"></z-radio>
+</z-radio-group>
+{% endset %}
+
+{% set disabledExample %}
+<z-radio-group>
+    <z-radio label="radio input 1" value="1"></z-radio>
+    <z-radio label="radio input 2" value="2" disabled></z-radio>
+    <z-radio label="radio input 3" value="3"></z-radio>
+</z-radio-group>
+{% endset%}
+
+<div class="container">
+    <h2>Radio-group & Radio</h2>
+
+    <p><code>{{ '<z-radio-group>' | escape }}</code> is a component that encapsulates <code>{{ '<z-radio>' | escape }}</code> components and exposes as a value the one that is active.</p>
+    <p><code>{{ '<z-radio>' | escape }}</code> is a component that provides the same functionality as a native <code>{{ '<input type="radio">' | escape }}</code> enhanced with a better and unified design.</p>
+
+    <div class="notif warn">
+        The <code>{{ '<z-radio>' | escape }}</code> component must always be a <b>direct child</b> of a <code>{{ '<z-radio-group>' | escape }}</code> component.
+    </div>
+
+    {{ example(template=minimalExample, about="Basic radio input") }}
+
+    <hr>
+    <h3>Attributes</h3>
+
+    <h4>Name (z-radio-group)</h4>
+
+    <p>The <b>name</b> attribute is the name that will be used on the internal radio inputs. It is recommanded to set it on the <code>{{ '<z-radio-group>' | escape }}</code> component.</p>
+
+    {{ example(template=nameExample, about="radio group with name") }}
+
+    <h4>Value (z-radio-group & z-radio)</h4>
+
+    <p>The <b>value</b> attribute exists on both the <code>{{ '<z-radio-group>' | escape }}</code> and <code>{{ '<z-radio>' | escape }}</code> components.</p>
+    <p>On the <code>{{ '<z-radio-group>' | escape }}</code> component, it reflects the value of the selected <code>{{ '<z-radio>' | escape }}</code> component.</p>
+    <p>On the <code>{{ '<z-radio>' | escape }}</code> component it contains the value to be passed to its <code>{{ '<z-radio-group>' | escape }}</code> parent when selected.</p>
+    <p>When set on the <code>{{ '<z-radio-group>' | escape }}</code> component, it acts as a default value.</p>
+
+    {{ example(template=valueExample, about="radio group and radio value") }}
+    
+    <h4>Label (z-radio)</h4>
+
+    <p>The <b>label</b> attribute provides a clickable label for the <code>{{ '<z-radio>' | escape }}</code> component.</p>
+
+    <h4>Right (z-radio)</h4>
+
+    <p>The <b>label</b> attribute provides a clickable label for the <code>{{ '<z-radio>' | escape }}</code> component.</p>
+
+    {{ example(template=rightExample, about="radio label before") }}
+
+    <h4>Disabled (z-radio)</h4>
+
+    <p>The <b>disabled</b> attribute prevents the <code>{{ '<z-radio>' | escape }}</code> component from beeing used and gives it an understandable styling.</p>
+    <p>The <code>{{ '<z-radio-group>' | escape }}</code> component will ignore the disabled <code>{{ '<z-radio>' | escape }}</code> components when navigating with keyboard arrow keys.</p>
+
+    {{ example(template=disabledExample, about="radio disabled") }}
+
+    <hr>
+    <h3>Accessibility</h3>
+
+    <p>Soon...</p>
+
+    <hr>
+    <h3>Events</h3>
+
+    <p>Soon...</p>
+</div>

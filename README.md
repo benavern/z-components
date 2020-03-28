@@ -1,4 +1,4 @@
-<center><a href="https://z-web-components.netlify.com/"><img src="./logo.png" alt="Z Web Components" title="Z Web Components"></a></center>
+<div style="text-align: center;"><a href="https://z-web-components.netlify.com/"><img src="./logo.png" alt="Z Web Components" title="Z Web Components"></a></div>
 
 > An opinionated set of web components for building strong and fast applications.
 

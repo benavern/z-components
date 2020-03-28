@@ -1,6 +1,6 @@
 # Z Web Components
 
-A set of web components I'd like to use more often...
+> An opinionated set of web components for building strong and fast applications.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e6df436a-46b8-4461-84f7-ff6c037e2634/deploy-status)](https://app.netlify.com/sites/z-web-components/deploys)
 

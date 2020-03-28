@@ -1,0 +1,15 @@
+header {
+    background-color: var(--z-primary-color);
+    color: #fff;
+}
+
+footer {
+    background-color: var(--z-secondary-color);
+    color: #fff;
+}
+
+z-checkbox,
+z-toggle,
+z-radio {
+    display: block;
+}

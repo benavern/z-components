@@ -7,7 +7,7 @@
     "dev": "parcel src/index.njk",
     "build": "npm run build:demo && npm run build:lib",
     "build:demo": "parcel build src/index.njk -d public",
-    "build:lib": "parcel build src/js/z-web-components.js -d lib --experimental-scope-hoisting",
+    "build:lib": "parcel build src/js/z-web-components.js -d lib",
     "cleanup": "rimraf .cache dist lib public",
     "prepare": "npm run cleanup && npm run build:lib"
   },
@@ -27,14 +27,13 @@
     "url": "https://github.com/benavern/z-components/issues"
   },
   "homepage": "https://github.com/benavern/z-components#readme",
-  "dependencies": {
-    "parcel-plugin-nunjucks": "^2.2.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "highlight.js": "^9.18.1",
     "lit-element": "^2.3.0",
     "nunjucks": "^3.2.1",
     "parcel-bundler": "^1.12.4",
+    "parcel-plugin-nunjucks": "^2.2.0",
     "rimraf": "^3.0.2",
     "sass": "^1.26.2"
   },

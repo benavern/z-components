@@ -1,0 +1,12 @@
+$green: #3A7;
+$gray: #666;
+$red: #D22;
+
+$site-width: 1024px;
+
+// CSS Variables
+:root {
+    --z-primary-color: #{$green};
+    --z-secondary-color: #{$gray};
+    --z-danger-color: #{$red};
+}

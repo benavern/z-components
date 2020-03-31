@@ -1,0 +1,21 @@
+{% set menu = [
+    { path: '/index.njk', title: 'Quick start', id: 'home' },
+    { path: '/input.njk', title: 'Input', id: 'input' },
+    { path: '/textarea.njk', title: 'textarea', id: 'textarea' },
+    { path: '/checkbox.njk', title: 'Checkbox', id: 'checkbox' },
+    { path: '/toggle.njk', title: 'Toggle', id: 'toggle' },
+    { path: '/radio.njk', title: 'Radio', id: 'radio' },
+    { path: '/tab.njk', title: 'Tab', id: 'tab' }
+] %}
+
+{% block nav %}
+    <nav>
+        {% for item in menu %}
+            <a 
+                class="{{ 'active' if selected === item.id }}" 
+                href="{{ item.path }}">
+                {{ item.title }}
+            </a>
+        {% endfor %}
+    </nav>
+{% endblock %}

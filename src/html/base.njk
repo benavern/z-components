@@ -15,7 +15,13 @@
     </header>
 
     <main>
-        {% block main %}{% endblock %}
+        <aside>
+            {% block nav %}{% endblock %}
+        </aside>
+        
+        <article>
+            {% block main %}{% endblock %}
+        </article>
     </main>
 
     <footer>

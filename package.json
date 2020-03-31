@@ -4,9 +4,9 @@
   "description": "A set of web components I'd like to use more often...",
   "main": "lib/z-web-components.js",
   "scripts": {
-    "dev": "parcel src/index.njk",
+    "dev": "parcel src/*.njk",
     "build": "npm run build:demo && npm run build:lib",
-    "build:demo": "parcel build src/index.njk -d public",
+    "build:demo": "parcel build src/*.njk -d public",
     "build:lib": "parcel build src/js/z-web-components.js -d lib",
     "cleanup": "rimraf .cache dist lib public",
     "prepare": "npm run cleanup && npm run build:lib"

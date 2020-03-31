@@ -30,15 +30,17 @@ h1 {
 }
 
 h2 {
+    font-size: 3rem;
     font-weight: 100;
-    font-size: 2rem;
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-weight: 900;
 }
 
-h3, h4 {
+h4 {
+    font-size: 1.5rem;
     font-weight: 900;
 }
 
@@ -51,6 +53,10 @@ hr {
 a {
     color: var(--z-primary-color);
     text-decoration: none;
+
+    &:focus {
+        outline-color: var(--z-primary-color);
+    }
 }
 
 ul {
@@ -61,7 +67,7 @@ ul {
 }
 
 code {
-    background-color: silver;
+    background-color: $silver;
     color: #000;
     font-family: $monospace-font;
     display: inline-block;

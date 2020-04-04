@@ -1,0 +1,108 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--z-primary-color);
+    color: #fff;
+    padding: 1rem 0;
+    
+    h1 {
+        font-size: 2rem;
+        margin: 0;
+    }
+    
+    @media (min-width: $breakpoint-md) {
+        padding: 2rem 0;
+
+        h1 {
+            font-size: 3rem;
+        }
+    }
+}
+
+footer {
+    border-top: 1px solid var(--z-secondary-color);
+    padding: 1rem 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    
+    @media (min-width: $breakpoint-md) {
+        flex-direction: row;
+    }
+    
+    @media (min-width: $breakpoint-lg) {
+        padding-right: $menu-width;
+    }
+    
+    article {
+        flex: 1;
+    }
+    
+    aside {
+        position: relative;
+        width: 100%;
+        border-bottom: 1px solid var(--z-secondary-color);
+        text-align: center;
+        
+        .toggle-menu {
+            display: block;
+            width: 100%;
+            background-color: $silver;
+            border: none;
+            background-color: transparent;
+            margin: 0;
+            padding: 1rem;
+            cursor: pointer;
+        }
+        
+        @media (min-width: $breakpoint-md) {
+            width: $menu-width;
+            border-right: 1px solid var(--z-secondary-color);
+            border-bottom: none;
+            text-align: unset;
+
+            .toggle-menu {
+                display: none;
+            }
+        }
+    
+        nav {
+            display: none;
+            position: sticky;
+            top: 0;
+            flex-direction: column;
+
+            &.visible {
+                display: flex;
+            }
+            
+            @media(min-width: $breakpoint-md) {
+                display: flex;
+                margin-top: 4rem;
+            }
+    
+            a {
+                display: block;
+                padding: .75rem 1rem;
+                color: inherit;
+    
+                &:hover,
+                &:focus {
+                    background-color: silver;
+                }
+                
+                &.active {
+                    font-weight: bold;
+                    color: var(--z-primary-color);
+                }
+            }
+        }
+    }
+}

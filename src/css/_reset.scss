@@ -9,13 +9,6 @@ body {
     font-size: 100%;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-main {
-    flex: 1;
 }
 
 h1, h2, h3, h4, p {
@@ -53,6 +46,17 @@ hr {
 a {
     color: var(--z-primary-color);
     text-decoration: none;
+    
+    &:focus {
+        outline-color: var(--z-primary-color);
+    }
+}
+
+button {
+    font-size: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+    text-align: center;
 
     &:focus {
         outline-color: var(--z-primary-color);
@@ -61,6 +65,7 @@ a {
 
 ul {
     list-style-position: inside;
+
     li {
         padding: .25rem 1rem;
     }

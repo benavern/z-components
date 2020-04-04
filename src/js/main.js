@@ -21,3 +21,12 @@ hljs.registerLanguage('javascript', javascript)
 hljs.registerLanguage('bash', bash)
 hljs.registerLanguage('css', css)
 hljs.initHighlightingOnLoad();
+
+// handle menu toggle
+const $menuBtn = document.querySelector('aside .toggle-menu')
+const $menuEl = document.querySelector('aside nav')
+
+$menuBtn.addEventListener('click', e => {
+    e.preventDefault()
+    $menuEl.classList.toggle('visible')
+})

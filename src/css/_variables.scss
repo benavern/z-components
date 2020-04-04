@@ -4,8 +4,12 @@ $silver: #eee;
 $red: #D22;
 $orange: #F95;
 
-$site-width: 720px;
-$menu-width: 250px;
+$site-width: 45rem;
+$menu-width: 18rem;
+
+$breakpoint-sm: $site-width;
+$breakpoint-md: $site-width + $menu-width;
+$breakpoint-lg: $site-width + 2 * $menu-width;
 
 $normal-font: 'Raleway', sans-serif;
 $monospace-font: monospace;

@@ -1,7 +1,7 @@
 .container {
     width: 100%;
     max-width: $site-width;
-    padding: 1rem;
+    padding: 0 1rem;
     margin: 0 auto;
 }
 
@@ -33,7 +33,11 @@ pre {
 
     .hljs {
         padding: 1rem;
-        font-size: small;
+        font-size: x-small;
+
+        @media (min-width: $breakpoint-sm) {
+            font-size: small;
+        }
     }
 
     code {

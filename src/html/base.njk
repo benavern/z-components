@@ -16,7 +16,10 @@
 
     <main>
         <aside>
+            {% include "./partials/theme-switcher.njk" %}
+
             <button class="toggle-menu">&#9776;&nbsp;menu</button>
+            
             {% block nav %}{% endblock %}
         </aside>
         

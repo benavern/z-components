@@ -62,6 +62,10 @@ button {
     font-weight: inherit;
     font-family: inherit;
     text-align: center;
+    
+    &:hover {
+        cursor: pointer;
+    }
 
     &:focus {
         outline-color: var(--z-primary-color);

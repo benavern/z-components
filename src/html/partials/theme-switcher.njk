@@ -1,0 +1,20 @@
+{% set themes = [
+    { name: 'dark-green', value: '#3A7' },
+    { name: 'light-green', value: '#7A3' },
+    { name: 'blue', value: '#37A' },
+    { name: 'purple', value: '#73A' },
+    { name: 'pink', value: '#A37' },
+    { name: 'orange', value: '#A73' }
+] %}
+
+<div class="theme-switcher">
+    {% for color in themes %}
+        <button 
+            class="theme-item" 
+            title="Switch to {{ color.name }} theme" 
+            data-color="{{ color.value }}"
+            style="background-color: {{ color.value }};">
+            <!-- color: {{ color.name }} -->
+        </button>
+    {% endfor %}
+</div>

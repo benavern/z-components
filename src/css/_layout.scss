@@ -51,6 +51,13 @@ main {
         width: 100%;
         border-bottom: 1px solid var(--z-secondary-color);
         text-align: center;
+
+        @media (min-width: $breakpoint-md) {
+            width: $menu-width;
+            border-right: 1px solid var(--z-secondary-color);
+            border-bottom: none;
+            text-align: unset;
+        }
         
         .toggle-menu {
             display: block;
@@ -62,16 +69,34 @@ main {
             margin: 0;
             padding: 1rem;
             cursor: pointer;
-        }
-        
-        @media (min-width: $breakpoint-md) {
-            width: $menu-width;
-            border-right: 1px solid var(--z-secondary-color);
-            border-bottom: none;
-            text-align: unset;
 
-            .toggle-menu {
+            @media (min-width: $breakpoint-md) {
                 display: none;
+            }
+        }
+
+        .theme-switcher {
+            display: flex;
+            margin-bottom: .5rem;
+
+            .theme-item {
+                position: relative;
+                display: block;
+                border: none;
+                height: 3rem;
+                margin: 0;
+                width: 100%;
+                transform: scale(1);
+                transform-origin: top;
+                box-shadow: none;
+                transition: .3s;
+
+                &:hover,
+                &.selected {
+                    z-index: 1;
+                    transform: scale(1.1);
+                    box-shadow: $box-shadow;
+                }
             }
         }
     
@@ -87,7 +112,6 @@ main {
             
             @media(min-width: $breakpoint-md) {
                 display: flex;
-                margin-top: 3.5rem;
             }
     
             a {

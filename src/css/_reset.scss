@@ -4,6 +4,11 @@
     padding: 0;
 }
 
+html {
+    background-color: var(--white);
+    color: var(--black);
+}
+
 body {
     font-family: $normal-font;
     font-size: 100%;
@@ -40,7 +45,7 @@ h4 {
 hr {
     margin: 4rem 1rem;
     border: none;
-    border-bottom: .1rem solid var(--z-secondary-color);
+    border-bottom: 1px solid var(--z-secondary-color);
 }
 
 a {
@@ -72,8 +77,8 @@ ul {
 }
 
 code {
-    background-color: $silver;
-    color: #000;
+    background-color: var(--silver);
+    color: $black;
     font-family: $monospace-font;
     display: inline-block;
     border-radius: .25rem;
@@ -85,13 +90,14 @@ pre {
     position: relative;
 
     code {
-        background-color: #222;
-        color: #fff;
+        background-color: $black;
+        color: $white;
         display: block;
         border-radius: 0;
     }
 }
 
 ::selection {
-    background-color: rgba($green, .5);
+    background-color: var(--z-primary-color);
+    color: var(--white);
 }

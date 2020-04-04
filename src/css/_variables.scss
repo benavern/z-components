@@ -1,6 +1,9 @@
+$white: #f2f5f5;
+$silver: #e2e5e5;
+$gray: #929595;
+$black: #323535;
+
 $green: #3A7;
-$gray: #999;
-$silver: #eee;
 $red: #D22;
 $orange: #F95;
 
@@ -19,7 +22,24 @@ $box-shadow: 0 0 .5rem rgba(black, .3);
 
 // CSS Variables
 :root {
+    --white: #{$white};
+    --silver: #{$silver};
+    --gray: #{$gray};
+    --black: #{$black};
+
     --z-primary-color: #{$green};
     --z-secondary-color: #{$gray};
+    --z-secondary-alt-color: #{darken($gray, 10%)};
     --z-danger-color: #{$red};
+    --z-tick-color: #{$white};
+    
+    @media (prefers-color-scheme: dark) {
+        --white: #{$black};
+        --silver: #{$gray};
+        --gray: #{$silver};
+        --black: #{$white};
+        
+        --z-secondary-alt-color: #{lighten($gray, 10%)};
+        --z-tick-color: #{$black};
+    }
 }

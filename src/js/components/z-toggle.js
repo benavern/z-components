@@ -6,8 +6,8 @@ export class ZToggle extends LitElement {
             :host {
                 --on: var(--z-primary-color, #0088c5);
                 --off: var(--z-secondary-color, #889);
-                --hover: #445;
-                --tick: #fff;
+                --hover: var(--z-secondary-alt-color, #445);
+                --tick: var(--z-tick-color, #fff);
             }
 
             * {

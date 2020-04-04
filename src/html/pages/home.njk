@@ -11,8 +11,10 @@ customElements.define('z-tab', ZTab)" %}
 {% set cssColors =
 ':root {
     --z-primary-color: #3A7;
-    --z-secondary-color: #999;
+    --z-secondary-color: #929595;
+    --z-secondary-alt-color: #787C7C;
     --z-danger-color: #D22;
+    --z-tick-color: #F2F5F5;
 }'%}
 
 <div class="container">
@@ -50,7 +52,7 @@ customElements.define('z-tab', ZTab)" %}
     <hr>
     <h3>Customisation</h3>
 
-    <p>For now, only 3 colors are customizable.</p>
+    <p>You can customize some colors via css variables.</p>
 
     <pre data-about="css colors"><code class="lang-css">{{ cssColors | escape }}</code></pre>
 </div>

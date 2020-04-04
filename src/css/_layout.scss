@@ -6,7 +6,7 @@ body {
 
 header {
     background-color: var(--z-primary-color);
-    color: #fff;
+    color: var(--white);
     padding: 1rem 0;
     
     h1 {
@@ -54,9 +54,10 @@ main {
         .toggle-menu {
             display: block;
             width: 100%;
-            background-color: $silver;
+            background-color: var(--silver);
             border: none;
             background-color: transparent;
+            color: inherit;
             margin: 0;
             padding: 1rem;
             cursor: pointer;
@@ -85,7 +86,7 @@ main {
             
             @media(min-width: $breakpoint-md) {
                 display: flex;
-                margin-top: 4rem;
+                margin-top: 3.5rem;
             }
     
             a {
@@ -95,7 +96,7 @@ main {
     
                 &:hover,
                 &:focus {
-                    background-color: silver;
+                    background-color: var(--silver);
                 }
                 
                 &.active {

@@ -1,7 +1,5 @@
 *, *:before, *:after {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 html {
@@ -14,6 +12,8 @@ body {
     font-size: 100%;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    margin: 0;
+    padding: 0;
 }
 
 h1, h2, h3, h4, p {

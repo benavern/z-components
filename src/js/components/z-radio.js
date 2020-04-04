@@ -5,10 +5,15 @@ export class ZRadio extends LitElement {
     static get styles() {
         return css`
             :host {
+                /* variable */
                 --checked: var(--z-primary-color, #0088c5);
                 --blur: var(--z-secondary-color, #889);
                 --hover: var(--z-secondary-alt-color, #445);
                 --tick: var(--z-tick-color, #fff);
+
+                /* wrapping style */
+                display: block;
+                margin: 1em 0;
             }
 
             * {
@@ -19,7 +24,6 @@ export class ZRadio extends LitElement {
                 display: inline-block;
                 user-select: none;
                 position: relative;
-                margin: 1em 0;
             }
 
             .z-radio:hover {

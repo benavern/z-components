@@ -4,10 +4,15 @@ export class ZToggle extends LitElement {
     static get styles() {
         return css`
             :host {
+                /* variables */
                 --on: var(--z-primary-color, #0088c5);
                 --off: var(--z-secondary-color, #889);
                 --hover: var(--z-secondary-alt-color, #445);
                 --tick: var(--z-tick-color, #fff);
+
+                /* wrapping style */
+                display: block;
+                margin: 1em 0;
             }
 
             * {
@@ -18,7 +23,6 @@ export class ZToggle extends LitElement {
                 display: inline-block;
                 user-select: none;
                 position: relative;
-                margin: 1em 0;
             }
 
             .z-toggle:hover {

@@ -47,9 +47,14 @@ export class ZCheckbox extends LitElement {
                 height: 1em;
                 width: 1em;
                 background-color: var(--blur);
-                margin: 0 .25em;
+                margin-right: .25em;
                 border-radius: .15em;
                 bottom: -.15em;
+            }
+
+            .z-checkbox .z-checkbox__item.right {
+                margin-right: 0;
+                margin-left: .25em;
             }
 
             .z-checkbox:hover:not(.disabled) .z-checkbox__item {
@@ -105,7 +110,7 @@ export class ZCheckbox extends LitElement {
                 ${ this.right ? html`<label class="z-checkbox__label">${this.label}</label>` : '' }
         
                 <input type="checkbox" ?disabled="${this.disabled}" ?checked="${this.checked}" />
-                <span class="z-checkbox__item"></span>
+                <span class="z-checkbox__item ${this.right ? 'right' : ''}"></span>
 
                 ${ !this.right ? html`<label class="z-checkbox__label">${this.label}</label>` : '' }
             </div>

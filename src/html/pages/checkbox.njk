@@ -1,5 +1,10 @@
 {% from "../macros/example.njk" import example %}
 
+{% set rightExample %}
+<z-checkbox label="checkbox input after label" right></z-checkbox>
+<z-checkbox label="checkbox input"></z-checkbox>
+{% endset %}
+
 {% set disabledExample %} 
 <z-checkbox label="checkbox input disabled" disabled></z-checkbox>
 <z-checkbox label="checkbox input checked & disabled" checked disabled></z-checkbox>
@@ -25,7 +30,7 @@
 
     <p>The <b>right</b> attribute makes the <code>{{ '<z-checkbox>' | escape }}</code> component appear after its label.</p>
 
-    {{ example(template='<z-checkbox label="checkbox input after label" right></z-checkbox>', about="checkbox input after label") }}
+    {{ example(template=rightExample, about="checkbox input after label") }}
 
     <h4>Checked</h4>
 

@@ -1,5 +1,10 @@
 {% from "../macros/example.njk" import example %}
 
+{% set rightExample %}
+<z-toggle label="toggle input after label" right></z-toggle>
+<z-toggle label="toggle input"></z-toggle>
+{% endset %}
+
 {% set labelsExample %}
 <z-toggle label="toggle input with custom inside labels" onlabel="ON" offlabel="OFF"></z-toggle>
 <z-toggle label="toggle input with custom inside labels" onlabel="✓"></z-toggle>
@@ -30,7 +35,7 @@
 
     <p>The <b>right</b> attribute makes the <code>{{ '<z-toggle>' | escape }}</code> component appear after its label.</p>
 
-    {{ example(template='<z-toggle label="toggle input after label" right></z-toggle>', about="toggle input after label") }}
+    {{ example(template=rightExample, about="toggle input after label") }}
 
     <h4>Active</h4>
 

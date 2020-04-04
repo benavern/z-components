@@ -47,11 +47,16 @@ export class ZToggle extends LitElement {
                 height: 1em;
                 width: 2em;
                 background-color: var(--off);
-                margin: 0 .25em;
+                margin-right: .25em;
                 border-radius: .5em;
                 overflow: hidden;
                 bottom: -.15em;
                 transition: .2s background-color;
+            }
+
+            .z-toggle .z-toggle__item.right {
+                margin-right: 0;
+                margin-left: .25em;
             }
 
             .z-toggle:hover:not(.disabled) .z-toggle__item {
@@ -134,7 +139,7 @@ export class ZToggle extends LitElement {
 
 
                 <input type="checkbox" ?disabled="${this.disabled}" ?checked="${this.active}" />
-                <div class="z-toggle__item">
+                <div class="z-toggle__item ${this.right ? 'right' : ''}">
                     <div class="z-toggle__slider">
                         ${ this.onlabel ? html`<span class="z-toggle__slider-on-label">${this.onlabel}</span>`: ''}
                         ${ this.offlabel ? html`<span class="z-toggle__slider-off-label">${this.offlabel}</span>`: ''}

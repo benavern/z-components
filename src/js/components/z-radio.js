@@ -48,9 +48,14 @@ export class ZRadio extends LitElement {
                 height: 1em;
                 width: 1em;
                 background-color: var(--blur);
-                margin: 0 .25em;
+                margin-right: .25em;
                 border-radius: 50%;
                 bottom: -.15em;
+            }
+
+            .z-radio .z-radio__item.right {
+                margin-right: 0;
+                margin-left: .25em;
             }
             
             .z-radio:hover:not(.disabled) .z-radio__item {
@@ -117,7 +122,7 @@ export class ZRadio extends LitElement {
                 ${ this.right ? html`<label class="z-radio__label">${this.label}</label>` : '' }
                 
                 <input type="radio" ?disabled="${this.disabled}" .name="${this.name}"/>
-                <span class="z-radio__item"></span>
+                <span class="z-radio__item ${this.right ? 'right' : ''}"></span>
 
                 ${ !this.right ? html`<label class="z-radio__label">${this.label}</label>` : '' }
             </div>

@@ -11,29 +11,47 @@
 
 ## Getting Started
 
-First install the lib in your project
+### Via npm
+
+First install the lib
 
 ```bash
 npm i z-web-components
 ```
 
-Then import what you need
+if you use a bundler, you will probably need to add a `browserslist` key to your `package.json`. For example :
+
+```bash
+  "browserslist": [
+    ">2%",
+    "Edge > 14",
+    "Firefox > 63",
+    "Chrome > 67"
+  ]
+```
+
+Then import in your javascript
 
 ```js
 // main.js
-import { ZInput, ZTextArea, ZCheckbox, ZToggle, ZRadioGroup, ZRadio, ZTabGroup, ZTab } from "./z-web-components"
-
-customElements.define('z-input', ZInput)
-customElements.define('z-textarea', ZTextArea)
-customElements.define('z-checkbox', ZCheckbox)
-customElements.define('z-toggle', ZToggle)
-customElements.define('z-radio-group', ZRadioGroup)
-customElements.define('z-radio', ZRadio)
-customElements.define('z-tab-group', ZTabGroup)
-customElements.define('z-tab', ZTab)
+import "z-web-components"
 ```
 
-And use it in your html
+### Via cdn
+
+You can also use any cdn provider that mirrors npm packages.
+
+```html
+<!-- unpkg -->
+<script src="https://unpkg.com/z-web-components"></script>
+
+<!-- jsdeliver -->
+<script src="https://cdn.jsdelivr.net/npm/z-web-components@latest"></script>
+```
+
+### Usage
+
+And use it in your html (more info on the [documentation website](https://z-web-components.netlify.com/))
 
 ```html
 <!-- index.html -->
@@ -55,19 +73,6 @@ And use it in your html
     <z-tab label="tab-2">This is tab 2.</z-tab>
     <z-tab label="tab-3">This is tab 3.</z-tab>
 </z-tab-group>
-```
-
-### Prerequisites
-
-The Z Web Components should work on these browsers:
-
-```json
-"browserslist": [
-    ">2%",
-    "Edge > 14",
-    "Firefox > 63",
-    "Chrome > 67"
-]
 ```
 
 ## Built With

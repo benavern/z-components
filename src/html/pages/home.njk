@@ -1,12 +1,39 @@
-{% set createElements = 
-"customElements.define('z-input', ZInput)
-customElements.define('z-textarea', ZTextArea)
-customElements.define('z-checkbox', ZCheckbox)
-customElements.define('z-toggle', ZToggle)
-customElements.define('z-radio-group', ZRadioGroup)
-customElements.define('z-radio', ZRadio)
-customElements.define('z-tab-group', ZTabGroup)
-customElements.define('z-tab', ZTab)" %}
+{% set browserlist = 
+'"browserslist": [
+  ">2%",
+  "Edge > 14",
+  "Firefox > 63",
+  "Chrome > 67"
+]' %}
+
+{% set createElements %}
+<z-input label="Text input with default value" value="default value"></z-input>
+
+<z-textarea label="Textarea input with default value" value="default value"></z-textarea>
+
+<z-checkbox label="checkbox input checked" checked></z-checkbox>
+
+<z-toggle label="toggle input active" active></z-toggle>
+
+<z-radio-group name="radio-demo" value="2">
+    <z-radio label="radio input" value="1"></z-radio>
+    <z-radio label="radio input" value="2"></z-radio>
+</z-radio-group>
+
+<z-tab-group>
+    <z-tab label="tab-1">This is tab 1.</z-tab>
+    <z-tab label="tab-2">This is tab 2.</z-tab>
+    <z-tab label="tab-3">This is tab 3.</z-tab>
+</z-tab-group>
+{% endset %}
+
+{% set cdn %}
+<!-- unpkg -->
+<script src="https://unpkg.com/z-web-components"></script>
+
+<!-- jsdeliver -->
+<script src="https://cdn.jsdelivr.net/npm/z-web-components@latest"></script>
+{% endset %}
 
 {% set cssColors =
 ':root {
@@ -29,25 +56,31 @@ customElements.define('z-tab', ZTab)" %}
 
     <p>Install <b>z-web-components</b> into nearly any project with some of the most popular package managers.</p>
 
-    <pre data-about="With npm"><code class="lang-bash">npm i z-web-components</code></pre>
-    <pre data-about="With yarn"><code class="lang-bash">yarn add z-web-components</code></pre>
+    <pre data-about="Via npm"><code class="lang-bash">npm i z-web-components</code></pre>
+    <pre data-about="Via yarn"><code class="lang-bash">yarn add z-web-components</code></pre>
 
-    <p>Import a list of the components you want to use in your website.</p>
+    <p>Add a <code>browserslist</code> key to your <code>package.json</code> file.</p>
 
-    <pre><code class="lang-javascript">import { ZInput, ZTextArea, ZCheckbox, ZToggle, ZRadioGroup, ZRadio, ZTabGroup, ZTab } from 'z-web-components'</code></pre>
+    <div class="notif">This is a temporary workaround i found to <a href="https://github.com/parcel-bundler/parcel/issues/2128">this error</a>.</div>
+
+    <pre><code class="lang-javascript">{{ browserlist | escape }}</code></pre>
+
+    <p>Import the library in you javascript bundle.</p>
+
+    <pre><code class="lang-javascript">import 'z-web-components'</code></pre>
 
     <h4>Via CDN</h4>
 
-    <p>Soon...</p>
+    <p>You can also use any cdn provider that mirrors npm packages.</p>
 
-    {# <pre><code class="lang-html">{{ '<script src="//unpkg.com/z-web-components"></script>' | escape }}</code></pre> #}
+    <pre data-about="Via cdn"><code class="lang-html">{{ cdn | trim | escape }}</code></pre>
     
     <hr>
     <h3>Usage</h3>
 
-    <p>Define the elements to be used in your website with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry/define">customElement.define</a> methode.</p>
+    <p>Use the elements in your website (more info on the individual documentation pages).</p>
 
-    <pre><code class="lang-javascript">{{ createElements | escape }}</code></pre>
+    <pre><code class="lang-html">{{ createElements | trim | escape }}</code></pre>
 
     <hr>
     <h3>Customisation</h3>

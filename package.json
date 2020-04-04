@@ -7,7 +7,7 @@
     "dev": "parcel src/*.njk",
     "build": "npm run build:demo && npm run build:lib",
     "build:demo": "parcel build src/*.njk -d public",
-    "build:lib": "parcel build src/js/z-web-components.js -d lib",
+    "build:lib": "parcel build src/js/z-web-components.js -d lib --target browser",
     "cleanup": "rimraf .cache dist lib public",
     "prepare": "npm run cleanup && npm run build:lib"
   },

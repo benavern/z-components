@@ -154,7 +154,7 @@ export class ZTextArea extends LitElement {
         }
     }
 
-    onResize(e) {
+    onResize() {
         // debounced resizedField (see constructor)
         this.resizeField()
     }

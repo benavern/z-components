@@ -136,7 +136,7 @@ export class ZTabGroup extends LitElement {
     firstUpdated() {
         const tabs = [...this.children].filter(child => child.tagName === 'Z-TAB')
 
-        this.labels = tabs.map((tab, i) => {
+        this.labels = tabs.map(tab => {
             return tab.getAttribute('label')
         })
 

@@ -129,7 +129,7 @@ export class ZRadio extends LitElement {
         `
     }
 
-    check(e) {
+    check() {
         if (!this.disabled && !this.checked) {
             this.checked = true
 

@@ -11,7 +11,7 @@ hljs.registerLanguage('html', html)
 hljs.registerLanguage('javascript', javascript)
 hljs.registerLanguage('bash', bash)
 hljs.registerLanguage('css', css)
-hljs.initHighlightingOnLoad();
+hljs.initHighlightingOnLoad()
 
 // handle menu toggle
 const $menuBtn = document.querySelector('aside .toggle-menu')
@@ -37,12 +37,12 @@ $themeBtns.forEach($btn => {
     })
 
     // onmouseover
-    $btn.addEventListener('mouseover', e => {
+    $btn.addEventListener('mouseover', () => {
         switchTheme(color, false)
     })
 })
 
-$themeSwitcher.addEventListener('mouseleave', e => {
+$themeSwitcher.addEventListener('mouseleave', () => {
     switchTheme(currentTheme)
 })
 

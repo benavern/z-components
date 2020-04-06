@@ -5,6 +5,7 @@
   "main": "lib/z-web-components.js",
   "scripts": {
     "dev": "parcel src/*.njk",
+    "lint": "eslint src/",
     "build": "npm run build:demo && npm run build:lib",
     "build:demo": "parcel build src/*.njk -d public",
     "build:lib": "parcel build src/js/z-web-components.js -d lib --target browser",
@@ -29,6 +30,9 @@
   "homepage": "https://github.com/benavern/z-components#readme",
   "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.0",
+    "eslint": "^6.8.0",
     "highlight.js": "^9.18.1",
     "lit-element": "^2.3.0",
     "nunjucks": "^3.2.1",

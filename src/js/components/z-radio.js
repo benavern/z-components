@@ -140,13 +140,7 @@ export class ZRadio extends LitElement {
 
     updated(changedProperties) {
         if (changedProperties.has('checked')) {
-            const event = new CustomEvent('z-radio-change', {
-                detail: {
-                    value: this.value,
-                    checked: this.checked
-                }
-            })
-            this.dispatchEvent(event)
+            this.dispatchChangeEvent()
 
             if (this.checked) {
                 this.shadowRoot.querySelector('input[type="radio"]').checked = true
@@ -154,5 +148,15 @@ export class ZRadio extends LitElement {
                 this.shadowRoot.querySelector('input[type="radio"]').checked = false
             }
         }
+    }
+
+    dispatchChangeEvent() {
+        const changeEvent = new CustomEvent('z-change', {
+            detail: {
+                value: this.checked
+            }
+        })
+
+        this.dispatchEvent(changeEvent)
     }
 }

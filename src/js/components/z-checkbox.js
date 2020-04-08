@@ -121,6 +121,17 @@ export class ZCheckbox extends LitElement {
         if (!this.disabled) {
             this.checked = !this.checked
             this.shadowRoot.querySelector('input[type="checkbox"]').focus()
+            this.dispatchChangeEvent()
         }
+    }
+
+    dispatchChangeEvent() {
+        const changeEvent = new CustomEvent('z-change', {
+            detail: {
+                value: this.checked
+            }
+        })
+
+        this.dispatchEvent(changeEvent)
     }
 }

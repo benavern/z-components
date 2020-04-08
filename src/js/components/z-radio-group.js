@@ -33,9 +33,9 @@ export class ZRadioGroup extends LitElement {
                 radio.setAttribute('name', this.name)
             }
 
-            radio.addEventListener('z-radio-change', ({detail}) => {
-                if (detail.checked) {
-                    this.value = detail.value
+            radio.addEventListener('z-change', ({ detail }) => {
+                if (detail.value) {
+                    this.value = radio.value
                     this.updateChildren()
                 }
             })
@@ -66,6 +66,7 @@ export class ZRadioGroup extends LitElement {
     updated(changedProperties) {
         if (changedProperties.has('value')) {
             this.updateChildren()
+            this.dispatchChangeEvent()
         }
     }
 
@@ -77,5 +78,15 @@ export class ZRadioGroup extends LitElement {
                 radio.removeAttribute('checked')
             }
         })
+    }
+
+    dispatchChangeEvent() {
+        const changeEvent = new CustomEvent('z-change', {
+            detail: {
+                value: this.value
+            }
+        })
+
+        this.dispatchEvent(changeEvent)
     }
 }

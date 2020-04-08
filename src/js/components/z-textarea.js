@@ -148,6 +148,7 @@ export class ZTextArea extends LitElement {
 
     inputAction(e) {
         this.value = e.target.value
+        this.dispatchChangeEvent()
 
         if (this.autoresize) {
             this.resizeField()
@@ -163,5 +164,15 @@ export class ZTextArea extends LitElement {
         const $input = this.shadowRoot.querySelector('.z-textarea__field')
         $input.style.height = 'auto'
         $input.style.height = $input.scrollHeight + 'px'
+    }
+
+    dispatchChangeEvent() {
+        const changeEvent = new CustomEvent('z-change', {
+            detail: {
+                value: this.value
+            }
+        })
+
+        this.dispatchEvent(changeEvent)
     }
 }

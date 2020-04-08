@@ -43,4 +43,20 @@ export class ZTab extends LitElement {
             </div>
         `
     }
+
+    updated(changedProperties) {
+        if (changedProperties.has('active')) {
+            this.dispatchChangeEvent()
+        }
+    }
+
+    dispatchChangeEvent() {
+        const changeEvent = new CustomEvent('z-change', {
+            detail: {
+                value: this.active
+            }
+        })
+
+        this.dispatchEvent(changeEvent)
+    }
 }

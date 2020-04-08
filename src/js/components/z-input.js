@@ -135,5 +135,16 @@ export class ZInput extends LitElement {
 
     inputAction(e) {
         this.value = e.target.value
+        this.dispatchChangeEvent()
+    }
+
+    dispatchChangeEvent() {
+        const changeEvent = new CustomEvent('z-change', {
+            detail: {
+                value: this.value
+            }
+        })
+
+        this.dispatchEvent(changeEvent)
     }
 }

@@ -156,6 +156,17 @@ export class ZToggle extends LitElement {
         if (!this.disabled) {
             this.active = !this.active
             this.shadowRoot.querySelector('input[type="checkbox"]').focus()
+            this.dispatchChangeEvent()
         }
+    }
+
+    dispatchChangeEvent() {
+        const changeEvent = new CustomEvent('z-change', {
+            detail: {
+                value: this.active
+            }
+        })
+
+        this.dispatchEvent(changeEvent)
     }
 }

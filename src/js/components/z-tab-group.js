@@ -185,6 +185,7 @@ export class ZTabGroup extends LitElement {
     updated(changedProperties) {
         if (changedProperties.has('active')) {
             this.updateChildren()
+            this.dispatchChangeEvent()
         }
     }
 
@@ -204,5 +205,15 @@ export class ZTabGroup extends LitElement {
         e.preventDefault()
         this.active = label
         this.updateChildren()
+    }
+
+    dispatchChangeEvent() {
+        const changeEvent = new CustomEvent('z-change', {
+            detail: {
+                value: this.active
+            }
+        })
+
+        this.dispatchEvent(changeEvent)
     }
 }

@@ -12,6 +12,17 @@
     "cleanup": "rimraf .cache dist lib public",
     "prepare": "npm run cleanup && npm run build:lib"
   },
+  "ntl": {
+    "descriptions": {
+      "dev": "Start a dev server with hot module reloading",
+      "lint": "Lint all js files in the src directory",
+      "build": "Run build:demo & build:lib commands",
+      "build:demo": "Build the demo / docs website",
+      "build:lib": "Build the library",
+      "cleanup": "Remove the residual cache and dist files and directories",
+      "prepare": "Cleans up and builds the lib after installing pachages & before publishing"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/benavern/z-components.git"

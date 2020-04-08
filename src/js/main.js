@@ -6,6 +6,8 @@ import javascript from 'highlight.js/lib/languages/javascript'
 import css from 'highlight.js/lib/languages/css'
 import bash from 'highlight.js/lib/languages/bash'
 
+import { debounce } from './utils'
+
 // syntax highlighting
 hljs.registerLanguage('html', html)
 hljs.registerLanguage('javascript', javascript)
@@ -25,6 +27,7 @@ $menuBtn.addEventListener('click', e => {
 // handle theme switcher
 const $themeSwitcher = document.querySelector('aside .theme-switcher')
 const $themeBtns = $themeSwitcher.querySelectorAll('.theme-item')
+const $colorInputs = document.querySelectorAll('z-input[type="color"]')
 let currentTheme = localStorage.getItem('theme')
 
 $themeBtns.forEach($btn => {
@@ -46,6 +49,12 @@ $themeSwitcher.addEventListener('mouseleave', () => {
     switchTheme(currentTheme)
 })
 
+$colorInputs.forEach($input => {
+    $input.addEventListener('z-change', debounce(({ detail: { value } }) => {
+        switchTheme(value, true)
+    }, 200))
+})
+
 if (currentTheme) switchTheme(currentTheme)
 
 function switchTheme(color, save = true) {
@@ -56,6 +65,9 @@ function switchTheme(color, save = true) {
         localStorage.setItem('theme', color)
         $themeBtns.forEach($btn => {
             $btn.classList.toggle('selected', $btn.getAttribute('data-color') === color)
+        })
+        $colorInputs.forEach($input => {
+            $input.value = color
         })
     }
 }

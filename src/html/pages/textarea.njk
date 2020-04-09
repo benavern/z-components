@@ -23,6 +23,21 @@
 </z-textarea>
 {% endset %}
 
+{% set changeEventExample %}
+<z-textarea id="change-event-textarea" label="Textarea with z-change event" autoresize></z-textarea>
+<p>Result:</p> 
+<p><b id="change-event-result"></b></p>
+
+<script>
+    const $textarea = document.querySelector('#change-event-textarea')
+    const $result = document.querySelector('#change-event-result')
+
+    $textarea.addEventListener('z-change', ({ detail }) => {
+        $result.innerHTML = detail.value.replace(/\n/g, '<br>')
+    })
+</script>
+{% endset %}
+
 <div class="container">
     <h2>Textarea</h2>
 
@@ -77,10 +92,16 @@
     <hr>
     <h3 id="accessibility">Accessibility</h3>
 
-    <p>Soon...</p>
+    <p>The <code>{{ '<z-textarea>' | escape }}</code> component works with the native <code>{{ '<textarea>' | escape }}</code> element to provide an accessible experience.</p>
 
     <hr>
     <h3 id="events">Events</h3>
 
-    <p>Soon...</p>
+    <h4 id="events-change">z-change</h4>
+
+    <p>The <b>z-change</b> event is fired whenever the value of the textarea changes. It is a <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent">CustomEvent</a>.</p>
+
+    <p>This event provides a <b>detail</b> object containing the new value of the textarea.</p>
+
+    {{ example(template=changeEventExample, about="z-change event") }}
 </div>

@@ -33,6 +33,7 @@ export class ZTextArea extends LitElement {
                 transform-origin: left;
                 transition: transform .3s;
                 color: var(--blur);
+                pointer-events: none;
             }
 
             .z-textarea .z-textarea__field {

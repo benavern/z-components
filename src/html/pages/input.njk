@@ -39,13 +39,13 @@
     {{ example(template='<z-input label="Text input"></z-input>', about="Basic input") }}
 
     <hr>
-    <h3>Attributes</h3>
+    <h3 id="attributes">Attributes</h3>
 
-    <h4>Label</h4>
+    <h4 id="attributes-label">Label</h4>
 
     <p>The <b>label</b> attribute is the text that appreares as a placeholder when the input is not focused or is empty and as a label otherwize.</p>
 
-    <h4>Type</h4>
+    <h4 id="attributes-type">Type</h4>
 
     <p>All the native <code>{{ '<input>' | escape }}</code> types are supported by the <code>{{ '<z-input>' | escape }}</code> component.</p>
     <p>Here is a list of those that have already been tested :</p>
@@ -72,28 +72,38 @@
 
     {{ example(template='<z-input label="Yolo input" type="yolo"></z-input>', about="invalid input type") }}
 
-    <h4>Value</h4>
+    <h4 id="attributes-value">Value</h4>
 
     <p>The <b>value</b> attribute is watched and will change as the input value changes.</p>
     <p>This attribute can also be used for setting a default value to the component.</p>
 
     {{ example(template='<z-input label="Text input with default value" value="default value"></z-input>', about="Text input with default value") }}
 
-    <h4>Required</h4>
+    <h4 id="attributes-required">Required</h4>
 
     <p>The <b>required</b> attribute makes the input color turn <b style="color: var(--z-danger-color);">red</b> if no value is set.</p>
 
     {{ example(template=requiredExample, about="Text input required") }}
 
-    <h4>Disabled</h4>
+    <h4 id="attributes-disabled">Disabled</h4>
 
     <p>The <b>disabled</b> attribute prevents the input from being used and gives it an understandable styling.</p>
     
     {{ example(template=disabledExample, about="Text input disabled") }}
 
-    <h4>Readonly</h4>
+    <h4 id="attributes-readonly">Readonly</h4>
 
     <p>The <b>readonly</b> attribute prevents the input value from being changed without changing its styling.</p>
 
     {{ example(template=readonlyExample, about="Text input readonly") }}
+
+    <hr>
+    <h3 id="accessibility">Accessibility</h3>
+
+    <p>Soon...</p>
+
+    <hr>
+    <h3 id="events">Events</h3>
+
+    <p>Soon...</p>
 </div>

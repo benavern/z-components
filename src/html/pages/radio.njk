@@ -61,15 +61,15 @@
     {{ example(template=minimalExample, about="Basic radio input") }}
 
     <hr>
-    <h3>Attributes</h3>
+    <h3 id="attributes">Attributes</h3>
 
-    <h4>Name (z-radio-group)</h4>
+    <h4 id="attributes-name">Name (z-radio-group)</h4>
 
     <p>The <b>name</b> attribute is the name that will be used on the internal radio inputs. It is recommanded to set it on the <code>{{ '<z-radio-group>' | escape }}</code> component.</p>
 
     {{ example(template=nameExample, about="radio group with name") }}
 
-    <h4>Value (z-radio-group & z-radio)</h4>
+    <h4 id="attributes-value">Value (z-radio-group & z-radio)</h4>
 
     <p>The <b>value</b> attribute exists on both the <code>{{ '<z-radio-group>' | escape }}</code> and <code>{{ '<z-radio>' | escape }}</code> components.</p>
     <p>On the <code>{{ '<z-radio-group>' | escape }}</code> component, it reflects the value of the selected <code>{{ '<z-radio>' | escape }}</code> component.</p>
@@ -78,7 +78,7 @@
 
     {{ example(template=valueExample, about="radio group and radio value") }}
 
-    <h4>Checked (z-radio)</h4>
+    <h4 id="attributes-checked">Checked (z-radio)</h4>
 
     <p>The <b>checked</b> attribute is watched and makes the radio beeing checked if provided (no value needed).</p>
     <p>This attribute can also be used for setting a default value to the <code>{{ '<z-radio-group>' | escape }}</code> component.</p>
@@ -89,17 +89,17 @@
 
     {{ example(template=checkedExample, about="radio checked") }}
     
-    <h4>Label (z-radio)</h4>
+    <h4 id="attributes-label">Label (z-radio)</h4>
 
     <p>The <b>label</b> attribute provides a clickable label for the <code>{{ '<z-radio>' | escape }}</code> component.</p>
 
-    <h4>Right (z-radio)</h4>
+    <h4 id="attributes-right">Right (z-radio)</h4>
 
     <p>The <b>label</b> attribute provides a clickable label for the <code>{{ '<z-radio>' | escape }}</code> component.</p>
 
     {{ example(template=rightExample, about="radio label before") }}
 
-    <h4>Disabled (z-radio)</h4>
+    <h4 id="attributes-disabled">Disabled (z-radio)</h4>
 
     <p>The <b>disabled</b> attribute prevents the <code>{{ '<z-radio>' | escape }}</code> component from beeing used and gives it an understandable styling.</p>
     <p>The <code>{{ '<z-radio-group>' | escape }}</code> component will ignore the disabled <code>{{ '<z-radio>' | escape }}</code> components when navigating with keyboard arrow keys.</p>
@@ -107,12 +107,12 @@
     {{ example(template=disabledExample, about="radio disabled") }}
 
     <hr>
-    <h3>Accessibility</h3>
+    <h3 id="accessibility">Accessibility</h3>
 
     <p>Soon...</p>
 
     <hr>
-    <h3>Events</h3>
+    <h3 id="events">Events</h3>
 
     <p>Soon...</p>
 </div>

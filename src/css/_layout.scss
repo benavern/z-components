@@ -44,6 +44,23 @@ main {
     article {
         flex: 1;
         padding-bottom: 1rem;
+
+        h1[id], h2[id], h3[id], h4[id]{
+            position: relative;
+
+            .heading-link {
+                position: absolute;
+                right: calc(100% - 2px); // for the mouse not to loose the hover state as the link is displayed outside of the heading
+                padding: 0 .25rem;
+                opacity: 0;
+                transition: opacity .3s;
+            }
+
+            &:hover .heading-link,
+            .heading-link:focus {
+                opacity: 1;
+            }
+        }
     }
     
     aside {

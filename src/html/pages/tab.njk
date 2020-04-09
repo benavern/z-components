@@ -35,6 +35,24 @@
 </z-tab-group>
 {% endset %}
 
+{% set changeEventExample %}
+<z-tab-group id="change-event-tab">
+    <z-tab label="tab 1">Tab 1 content</z-tab>
+    <z-tab label="tab 2">Tab 2 content</z-tab>
+</z-tab-group>
+
+<p>Result: <b id="change-event-result"></b></p>
+
+<script>
+    const $tab = document.querySelector('#change-event-tab')
+    const $result = document.querySelector('#change-event-result')
+
+    $tab.addEventListener('z-change', ({ detail }) => {
+        $result.innerText = detail.value
+    })
+</script>
+{% endset %}
+
 <div class="container">
     <h2>Tab-group & Tab</h2>
 
@@ -65,10 +83,30 @@
     <hr>
     <h3 id="accessibility">Accessibility</h3>
 
-    <p>Soon...</p>
+    <h4 id="accessibility-tab-group">Tab group</h4>
+
+    <p>The <code>{{ '<z-tab-group>' | escape }}</code> component is a wrapper for a list of <code>{{ '<z-tab>' | escape }}</code> components.</p>
+    <p>It displays a list of buttons meant to activate its corresponding <code>{{ '<z-tab>' | escape }}</code> component and the content of that <code>{{ '<z-tab>' | escape }}</code> component.</p>
+    <p>Only the currently active tab button can be focused.</p>
+    <p>To activate the other <code>{{ '<z-tab>' | escape }}</code> components, you have to have focus on one of the buttons and use up/left key for previous and right/down key for next.</p>
+    
+    <h4 id="accessibility-tab">Tab group</h4>
+
+    <p>The <code>{{ '<z-tab>' | escape }}</code> component is a wrapper for the content you want to display when this component is the one activated.</p>
+    <p>When activated, the content of a <code>{{ '<z-tab>' | escape }}</code> component should be the only one visible inside the <code>{{ '<z-tab-group>' | escape }}</code> component.</p>
 
     <hr>
     <h3 id="events">Events</h3>
 
-    <p>Soon...</p>
+    <h4 id="events-change-tab-group">z-change (z-tab-group)</h4>
+    <p>The <b>z-change</b> event is fired whenever the active <code>{{ '<z-tab>' | escape }}</code> component changes. It is a <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent">CustomEvent</a>.</p>
+    <p>This event provides a <b>detail</b> object containing the value of the newly active tab.</p>
+
+    {{ example(template=changeEventExample, about="z-change event") }}
+    
+    <h4 id="events-change-tab">z-change (z-tab)</h4>
+
+    <p>The <b>z-change</b> event is fired whenever the <b>active </b> of the tab changes. It is a <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent">CustomEvent</a>.</p>
+    <p>This event provides a <b>detail</b> object containing the new value of the tab <b>active</b> internal property.</p>
+    <div class="notif">This event is used by the <code>{{ '<z-tab-group>' | escape }}</code> component. It is most likely not usefull otherwise...</div>
 </div>

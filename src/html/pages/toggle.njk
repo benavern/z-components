@@ -16,6 +16,20 @@
 <z-toggle label="toggle input active & disabled" active disabled></z-toggle>
 {% endset %}
 
+{% set changeEventExample %}
+<z-toggle id="change-event-toggle" label="Toggle with z-change event"></z-toggle>
+<p>Result: <b id="change-event-result">?</b></p>
+
+<script>
+    const $toggle = document.querySelector('#change-event-toggle')
+    const $result = document.querySelector('#change-event-result')
+
+    $toggle.addEventListener('z-change', ({ detail }) => {
+        $result.innerText = detail.value
+    })
+</script>
+{% endset %}
+
 <div class="container">
     <h2>Toggle</h2>
 
@@ -67,10 +81,16 @@
     <hr>
     <h3 id="accessibility">Accessibility</h3>
 
-    <p>Soon...</p>
+    <p>The <code>{{ '<z-toggle>' | escape }}</code> component works with the native <code>{{ '<input type="checkbox">' | escape }}</code> element to provide an accessible experience.</p>
 
     <hr>
     <h3 id="events">Events</h3>
 
-    <p>Soon...</p>
+    <h4 id="events-change">z-change</h4>
+
+    <p>The <b>z-change</b> event is fired whenever the value of the toggle changes. It is a <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent">CustomEvent</a>.</p>
+
+    <p>This event provides a <b>detail</b> object containing the new value of the toggle.</p>
+
+    {{ example(template=changeEventExample, about="z-change event") }}
 </div>

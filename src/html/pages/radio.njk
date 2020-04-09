@@ -48,6 +48,24 @@
 </z-radio-group>
 {% endset%}
 
+{% set changeEventExample %}
+<z-radio-group id="change-event-radio">
+    <z-radio label="radio input 1" value="1"></z-radio>
+    <z-radio label="radio input 2" value="2"></z-radio>
+</z-radio-group>
+
+<p>Result: <b id="change-event-result"></b></p>
+
+<script>
+    const $radio = document.querySelector('#change-event-radio')
+    const $result = document.querySelector('#change-event-result')
+
+    $radio.addEventListener('z-change', ({ detail }) => {
+        $result.innerText = detail.value
+    })
+</script>
+{% endset %}
+
 <div class="container">
     <h2>Radio-group & Radio</h2>
 
@@ -109,10 +127,29 @@
     <hr>
     <h3 id="accessibility">Accessibility</h3>
 
-    <p>Soon...</p>
+    <h4 id="accessibility-radio-group">Radio group</h4>
+
+    <p>The <code>{{ '<z-radio-group>' | escape }}</code> component is a wrapper for a list of <code>{{ '<z-radio>' | escape }}</code> components.</p>
+    <p>It provides a <b>value</b> corresponding to the selected <code>{{ '<z-radio>' | escape }}</code> component.</p>
+    
+    <h4 id="accessibility-radio">Radio</h4>
+
+    <p>The <code>{{ '<z-radio>' | escape }}</code> component works with the native <code>{{ '<input type="checkbox">' | escape }}</code> element to provide an accessible experience.</p>
+    <p>Only the active <code>{{ '<z-radio>' | escape }}</code> component inside a <code>{{ '<z-radio-group>' | escape }}</code> component should be focusable. (depends on browser implementation)</p>
+    <p>To select the other <code>{{ '<z-radio>' | escape }}</code> components, you have to have focus on one of them and use up/left key for previous and right/down key for next.</p>
 
     <hr>
     <h3 id="events">Events</h3>
 
-    <p>Soon...</p>
+    <h4 id="events-change-radio-group">z-change (z-radio-group)</h4>
+    <p>The <b>z-change</b> event is fired whenever the selected <code>{{ '<z-radio>' | escape }}</code> component changes. It is a <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent">CustomEvent</a>.</p>
+    <p>This event provides a <b>detail</b> object containing the value of the newly selected radio input.</p>
+
+    {{ example(template=changeEventExample, about="z-change event") }}
+    
+    <h4 id="events-change-radio">z-change (z-radio)</h4>
+
+    <p>The <b>z-change</b> event is fired whenever the value of the radio input changes. It is a <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent">CustomEvent</a>.</p>
+    <p>This event provides a <b>detail</b> object containing the new value of the radio input.</p>
+    <div class="notif">This event is used by the <code>{{ '<z-radio-group>' | escape }}</code> component. It is most likely not usefull otherwise...</div>
 </div>

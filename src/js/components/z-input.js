@@ -30,6 +30,7 @@ export class ZInput extends LitElement {
                 transform-origin: left;
                 transition: transform .3s;
                 color: var(--blur);
+                pointer-events: none;
             }
 
             .z-input .z-input__field {

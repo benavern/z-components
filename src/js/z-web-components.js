@@ -1,3 +1,4 @@
+import './polyfills'
 import { ZInput } from './components/z-input'
 import { ZTextArea } from './components/z-textarea'
 import { ZCheckbox } from './components/z-checkbox'

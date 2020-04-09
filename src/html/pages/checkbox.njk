@@ -10,6 +10,20 @@
 <z-checkbox label="checkbox input checked & disabled" checked disabled></z-checkbox>
 {% endset %}
 
+{% set changeEventExample %}
+<z-checkbox id="change-event-checkbox" label="Checkbox with z-change event"></z-checkbox>
+<p>Result: <b id="change-event-result">?</b></p>
+
+<script>
+    const $checkbox = document.querySelector('#change-event-checkbox')
+    const $result = document.querySelector('#change-event-result')
+
+    $checkbox.addEventListener('z-change', ({ detail }) => {
+        $result.innerText = detail.value
+    })
+</script>
+{% endset %}
+
 <div class="container">
     <h2>Checkbox</h2>
 
@@ -48,10 +62,16 @@
     <hr>
     <h3 id="accessibility">Accessibility</h3>
 
-    <p>Soon...</p>
+    <p>The <code>{{ '<z-checkbox>' | escape }}</code> component works with the native <code>{{ '<input type="checkbox">' | escape }}</code> element to provide an accessible experience.</p>
 
     <hr>
     <h3 id="events">Events</h3>
 
-    <p>Soon...</p>
+    <h4 id="events-change">z-change</h4>
+
+    <p>The <b>z-change</b> event is fired whenever the value of the checkbox changes. It is a <a href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent/CustomEvent">CustomEvent</a>.</p>
+
+    <p>This event provides a <b>detail</b> object containing the new value of the checkbox.</p>
+
+    {{ example(template=changeEventExample, about="z-change event") }}
 </div>

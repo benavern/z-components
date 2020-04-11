@@ -9,6 +9,59 @@
     text-align: center;
 }
 
+code.keyboard {
+    position: relative;
+    z-index: 1;
+    min-width: 3em;
+    height: 3em;
+    line-height: 3em;
+    vertical-align: baseline;
+    padding: .125em 1em;
+    margin: 0 .5em;
+    text-align: center;
+    background-color: transparent;
+    color: $black;
+    border-radius: .25em;
+    font-variant: small-caps;
+    font-weight: bold;
+    letter-spacing: .05em;
+    box-shadow: .125em .125em .5em $black;
+
+    &:hover {
+        cursor: default;
+    }
+    
+    &:before {
+        content: '';
+        z-index: -2;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        border: 1.5em solid;
+        border-radius: .25em;
+        border-top-color: $white;
+        border-right-color: $gray;
+        border-bottom-color: $gray;
+        border-left-color: $silver;
+    }
+    
+    &:after {
+        content: '';
+        z-index: -1;
+        position: absolute;
+        top: .5em;
+        left: .5em;
+        width: calc(100% - 1em);
+        height: 2em;
+        border: 1px solid $white;
+        border-radius: .25em;
+        background-color: $silver;
+        box-shadow: .125em .125em .5em $gray inset;
+    }
+}
+
 pre {
     box-shadow: $box-shadow;
 

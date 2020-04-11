@@ -136,7 +136,11 @@
 
     <p>The <code>{{ '<z-radio>' | escape }}</code> component works with the native <code>{{ '<input type="checkbox">' | escape }}</code> element to provide an accessible experience.</p>
     <p>Only the active <code>{{ '<z-radio>' | escape }}</code> component inside a <code>{{ '<z-radio-group>' | escape }}</code> component should be focusable. (depends on browser implementation)</p>
-    <p>To select the other <code>{{ '<z-radio>' | escape }}</code> components, you have to have focus on one of them and use up/left key for previous and right/down key for next.</p>
+    <p>To select the other <code>{{ '<z-radio>' | escape }}</code> components, you have to have focus on one of them and:</p>
+    <ul>
+        <li>Use <code class="keyboard">Up</code> or <code class="keyboard">Left</code> key for <b>previous</b> radio.</li>
+        <li>Use <code class="keyboard">Right</code> or <code class="keyboard">Down</code> key for <b>next</b> radio.</li>
+    </ul>
 
     <hr>
     <h3 id="events">Events</h3>

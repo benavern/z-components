@@ -1,0 +1,56 @@
+{% from "../macros/example.njk" import example %}
+
+{% set basicExample %}
+<z-select>
+    <z-option value="opt1" selected>Option 1</z-option>
+    <z-option value="opt2">Option 2</z-option>
+    <z-option value="opt3">Option 3</z-option>
+    <z-option value="opt4">Option 4</z-option>
+    <z-option value="opt5">Option 5</z-option>
+    <z-option value="opt6">Option 6</z-option>
+    <z-option value="opt7">Option 7</z-option>
+    <z-option value="opt8">Option 8</z-option>
+</z-select>
+
+<z-select multiple>
+    <z-option value="opt1" selected>Option 1</z-option>
+    <z-option value="opt2">Option 2</z-option>
+    <z-option value="opt3" selected>Option 3</z-option>
+    <z-option value="opt4">Option 4</z-option>
+    <z-option value="opt5">Option 5</z-option>
+    <z-option value="opt6">Option 6</z-option>
+    <z-option value="opt7">Option 7</z-option>
+    <z-option value="opt8">Option 8</z-option>
+</z-select>
+
+<z-option-group>
+    <z-option value="opt1" selected>Option 1</z-option>
+    <z-option value="opt2">Option 2</z-option>
+    <z-option value="opt3">Option 3</z-option>
+    <z-option value="opt4">Option 4</z-option>
+    <z-option value="opt5">Option 5</z-option>
+    <z-option value="opt6">Option 6</z-option>
+    <z-option value="opt7">Option 7</z-option>
+    <z-option value="opt8">Option 8</z-option>
+</z-option-group>
+
+<z-option-group multiple>
+    <z-option value="opt1" selected>Option 1</z-option>
+    <z-option value="opt2">Option 2</z-option>
+    <z-option value="opt3" selected>Option 3</z-option>
+    <z-option value="opt4">Option 4</z-option>
+    <z-option value="opt5">Option 5</z-option>
+    <z-option value="opt6">Option 6</z-option>
+    <z-option value="opt7">Option 7</z-option>
+    <z-option value="opt8">Option 8</z-option>
+</z-option-group>
+
+{% endset %}
+
+<div class="container">
+    <h2>Select</h2>
+
+    <p><code>{{ '<z-select>' | escape }}</code> is a component that provides the same functionality as a native <code>{{ '<select>' | escape }}</code> enhanced with a better and unified design.</p>
+
+    {{ example(template=basicExample, about="select") }}
+</div>

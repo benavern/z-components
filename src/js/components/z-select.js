@@ -7,9 +7,8 @@ export class ZSelect extends LitElement {
         return css`
             :host {
                 --focus: var(--z-primary-color, #0088c5);
-                --blur: var(--z-secondary-color, #889);
-                --background: var(--z-background-color, #e2e2e4);
-                --invalid: var(--z-danger-color, #f33);
+                --border: var(--z-secondary-color, #889);
+                --shadow: var(--z-background-alt-color, #ddd);
                 
                 display: block;
             }
@@ -24,12 +23,12 @@ export class ZSelect extends LitElement {
 
             .z-select__indicator {
                 position: absolute;
-                right: 1em;
+                right: .75em;
                 top: 1.5em;
                 width: 0;
                 height: 0;
                 border: .25em solid transparent;
-                border-top-color: var(--blur);
+                border-top-color: var(--border);
                 border-bottom-width: 0;
                 pointer-events: none;
                 transform: rotate(0);
@@ -48,7 +47,8 @@ export class ZSelect extends LitElement {
                 width: 100%;
                 overflow-y: auto;
                 max-height: 15em;
-                box-shadow: 0 0 1em var(--blur);
+                border: 1px solid var(--border);
+                box-shadow: 0 0 1em var(--shadow);
             }
         `
     }
@@ -100,26 +100,46 @@ export class ZSelect extends LitElement {
                     readonly></z-input>
                 
                 <div class="z-select__indicator ${this.optionsVisible ? 'open' : ''}"></div>
-                
-                <!-- <select name="" id=""></select> -->
 
-                <div 
-                    class="z-select__options"
-                    ?hidden="${!this.optionsVisible}">
+                <z-option-group 
+                    class="z-select__options" 
+                    ?hidden="${!this.optionsVisible}"
+                    ?multiple="${this.multiple}">
                     <slot></slot>
-                </div>
+                </z-option-group>
             </div>
         `
     }
 
     firstUpdated() {
         document.addEventListener('click', this.outsideClickListener.bind(this))
-        this.addEventListener('keyup', e => e.keyCode === 27 && this.outsideClickListener.call(this, {target: document}))
-        optionsGroupInit.call(this)
+        this.addEventListener('keyup', (e) => {
+            if (e.key === 'Escape') this.optionsVisible = false
+        })
+
+        const optionsGroup = this.shadowRoot.querySelector('.z-select__options')
+        if (optionsGroup) {
+            if (this.multiple) {
+                optionsGroup.setAttribute('multiple', '')
+            } else {
+                optionsGroup.removeAttribute('multiple')
+            }
+    
+            optionsGroup.addEventListener('z-change', ({ detail }) => {
+                if (this.multiple) {
+                    this.value = detail.value
+                } else {
+                    this.value = [detail.value]
+                    this.optionsVisible = false
+                }
+                this.dispatchChangeEvent()
+                
+            })
+        }
     }
 
     updated(changedProperties) {
-        if (changedProperties.has('value')) {
+        if (changedProperties.has('value') && changedProperties.get('value')) {
             this.updateChildren()
             this.dispatchChangeEvent()
         }
@@ -127,29 +147,24 @@ export class ZSelect extends LitElement {
 
     focus() {
         this.optionsVisible = true
-        requestAnimationFrame(() => {
-            const options = [...this.querySelectorAll('z-option')]
-            if (options.length) options[0].focus()
-        })
     }
 
     updateChildren() {
-        optionsGroupUpdate.call(this)
+        const optionsGroup = this.shadowRoot.querySelector('.z-select__options')
+        if (optionsGroup && JSON.stringify(optionsGroup.value) !== JSON.stringify(this.value)) {
+            optionsGroup.value = this.value
+            this.dispatchChangeEvent()
+        }
     }
 
     disconnectedCallback() {
         document.removeEventListener(this.outsideClickListener.bind(this))
     }
 
-    onChange({ detail }) {
-        this.value = detail.value
-        this.dispatchChangeEvent()
-    }
-
     dispatchChangeEvent() {
         const changeEvent = new CustomEvent('z-change', {
             detail: {
-                value: this.value
+                value: this.multiple ? this.value : this.value[0]
             }
         })
 

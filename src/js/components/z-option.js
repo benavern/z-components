@@ -6,7 +6,7 @@ export class ZOption extends LitElement {
             :host {
                 --focus: var(--z-primary-color, #0088c5);
                 --background: var(--z-background-color, #eee);
-                --hover: var(--z-secondary-alt-color, #889);
+                --hover: var(--z-background-alt-color, #ddd);
 
                 display: block;
             }

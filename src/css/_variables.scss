@@ -32,6 +32,8 @@ $box-shadow: 0 0 .5rem rgba(black, .3);
     --z-secondary-alt-color: #{darken($gray, 10%)};
     --z-danger-color: #{$red};
     --z-tick-color: #{$white};
+    --z-background-color: #{$white};
+    --z-background-alt-color: #{darken($white, 5%)};
     
     @media (prefers-color-scheme: dark) {
         --white: #{$black};
@@ -39,7 +41,10 @@ $box-shadow: 0 0 .5rem rgba(black, .3);
         --gray: #{$silver};
         --black: #{$white};
         
-        --z-secondary-alt-color: #{lighten($gray, 10%)};
+        --z-secondary-color: #{$silver};
+        --z-secondary-alt-color: #{darken($silver, 10%)};
         --z-tick-color: #{$black};
+        --z-background-color: #{$black};
+        --z-background-alt-color: #{darken($black, 5%)};
     }
 }

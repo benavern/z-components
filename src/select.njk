@@ -1,0 +1,10 @@
+{% extends "./html/base.njk" %}
+
+{% block nav %}
+    {% set selected = 'select' %}
+    {% include "./html/partials/navigation.njk" %}
+{% endblock %}
+
+{% block main %}
+    {% include "./html/pages/select.njk" %}
+{% endblock %}

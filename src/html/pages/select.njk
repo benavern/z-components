@@ -1,0 +1,28 @@
+{% from "../macros/example.njk" import example %}
+
+{% set basicExample %}
+<z-select id="change-event-input" multiple>
+    <z-option value="opt1" selected>Option 1</z-option>
+    <z-option value="opt2">Option 2</z-option>
+    <z-option value="opt3">Option 3</z-option>
+</z-select>
+
+<p>Result: <b id="change-event-result"></b></p>
+
+<script>
+    const $input = document.querySelector('#change-event-input')
+    const $result = document.querySelector('#change-event-result')
+
+    $input.addEventListener('z-change', ({ detail }) => {
+        $result.innerText = detail.value
+    })
+</script>
+{% endset %}
+
+<div class="container">
+    <h2>Select</h2>
+
+    <p><code>{{ '<z-select>' | escape }}</code> is a component that provides the same functionality as a native <code>{{ '<select>' | escape }}</code> enhanced with a better and unified design.</p>
+
+    {{ example(template=basicExample, about="select") }}
+</div>
